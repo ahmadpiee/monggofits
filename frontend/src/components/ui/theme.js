@@ -5,9 +5,8 @@ const solidBlack = "#000"
 const red1 = "#cf2f2f"
 const yellow1 = "#EDE734"
 const blue1 = "#277dee"
-const gray1 = "#6e6e6e"
 
-const Theme = createTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: primary,
@@ -50,7 +49,7 @@ const Theme = createTheme({
     },
     h5: {
       fontFamily: "Raleway",
-      fontSize: "1,2rem",
+      fontSize: "1.2rem",
       fontWeight: 700,
       fontStyle: "italic",
       color: "#fff",
@@ -58,10 +57,10 @@ const Theme = createTheme({
     body1: {
       fontFamily: "Montserrat",
       fontSize: "1rem",
-      color: gray1,
+      color: primary,
     },
   },
   overrides: {},
 })
 
-export default Theme
+export default theme
