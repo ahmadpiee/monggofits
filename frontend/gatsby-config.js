@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -19,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: `${process.env.GATSBY_STRAPI_URL}`,
         queryLimit: 1000, // Defaults to 100
         collectionTypes: [`product`, `category`, `variant`],
       },

@@ -8,7 +8,6 @@ import {
   Tab,
   IconButton,
   useMediaQuery,
-  Hidden,
   SwipeableDrawer,
   List,
   ListItem,
@@ -19,14 +18,15 @@ import account from "../../images/account.svg"
 import search from "../../images/search.svg"
 import cart from "../../images/cart.svg"
 import menu from "../../images/menu.svg"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   coloredIndicator: {
-    backgroundColor: "#cf2f2f",
+    background: "#cf2f2f",
   },
   logoText: {
     color: theme.palette.common.red1,
+    fontSize: theme.palette.logo,
   },
   logoContainer: {
     [theme.breakpoints.down("md")]: {
@@ -42,8 +42,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 600,
   },
   icon: {
-    height: "1.5rem",
-    width: "1.5rem",
+    height: "1.2rem",
+    width: "1.2rem",
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
@@ -151,14 +151,14 @@ export default function Header({ categories }) {
   ]
 
   return (
-    <AppBar color="transparent" elevation={0}>
+    <AppBar color="default" position="sticky">
       <Toolbar>
         <Button
           component={Link}
           to="/"
           classes={{ root: classes.logoContainer }}
         >
-          <Typography variant="h1">
+          <Typography variant="h6">
             <span className={classes.logoText}>Monggo</span>
             fits
           </Typography>
@@ -179,6 +179,7 @@ export default function Header({ categories }) {
               </IconButton>
             )
           }
+          return null
         })}
       </Toolbar>
     </AppBar>

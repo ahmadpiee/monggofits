@@ -18,9 +18,8 @@
       "unique": false
     },
     "description": {
-      "type": "richtext",
-      "required": true,
-      "unique": true
+      "type": "text",
+      "required": true
     },
     "featured": {
       "type": "boolean"
@@ -32,6 +31,12 @@
     "variants": {
       "via": "product",
       "collection": "variant"
+    },
+    "promo": {
+      "type": "boolean"
+    },
+    "guide": {
+      "model": "additional-description"
     }
   }
 }
