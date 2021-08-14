@@ -7,11 +7,25 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { makeStyles } from "@material-ui/core"
 
 import Header from "./Header"
 import Footer from "./Footer"
 
+const useStyles = makeStyles(theme => ({
+  spacer: {
+    marginBottom: "5rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "2.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "1.5rem",
+    },
+  },
+}))
+
 const Layout = ({ children }) => {
+  const classes = useStyles()
   const data = useStaticQuery(graphql`
     query GetCategories {
       allStrapiCategory {
@@ -28,7 +42,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header categories={data.allStrapiCategory.edges} />
-      <div style={{ marginBottom: "5rem" }} />
+      <div className={classes.spacer} />
       <main>{children}</main>
       <Footer />
     </>

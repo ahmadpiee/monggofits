@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     color: "#fff",
-    fontSize: "1rem",
   },
   linkColumn: {
     width: "20rem",

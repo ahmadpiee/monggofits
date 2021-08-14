@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
   },
   signup: {
     marginRight: "0.5rem",
-    fontSize: "1.2rem",
   },
   icon: {
     height: "1rem",
@@ -50,8 +49,12 @@ const CallToAction = () => {
         </Grid>
       </Grid>
       <Grid item classes={{ root: classes.buttonContainer }}>
-        <Button classes={{ root: classes.button }}>
-          <Typography variant="h4" classes={{ root: classes.signup }}>
+        <Button
+          component={Link}
+          to="/register"
+          classes={{ root: classes.button }}
+        >
+          <Typography variant="body2" classes={{ root: classes.signup }}>
             Sign up for free
           </Typography>
           <FaLocationArrow className={classes.icon} />

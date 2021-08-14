@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "100%",
   },
   serviceTitle: {
-    fontSize: "1.2rem",
+    // fontSize: "1.2rem",
     fontWeight: "bolder",
   },
   link: {},
@@ -40,7 +40,7 @@ const AdditionialServices = () => {
           alignItems="center"
         >
           <Grid item>
-            <Typography variant="h1" classes={{ root: classes.serviceTitle }}>
+            <Typography variant="h6" classes={{ root: classes.serviceTitle }}>
               {category}
             </Typography>
           </Grid>

@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
   chipContainer: {
     backgroundColor: theme.palette.secondary.dark,
-    ...theme.typography.h3,
+    ...theme.typography.body1,
     color: theme.palette.common.white,
     fontSize: "1rem",
     padding: "0.5rem 0",

@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
   makeStyles,
+  useMediaQuery,
 } from "@material-ui/core"
 import Carousel from "react-spring-3d-carousel"
 import clsx from "clsx"
@@ -21,6 +22,12 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "60rem",
     padding: "20rem 10rem",
+    [theme.breakpoints.down("xl")]: {
+      padding: "17.5rem 7.5rem",
+    },
+    [theme.breakpoints.down("lg")]: {
+      padding: "8.5rem 5rem",
+    },
   },
   productName: {
     color: "#fff",
@@ -35,33 +42,54 @@ const useStyles = makeStyles(theme => ({
     width: "25rem",
     backgroundColor: "#fff",
     borderRadius: 20,
-    boxShadow: theme.shadows[15],
+    boxShadow: theme.shadows[10],
+    [theme.breakpoints.down("sm")]: {
+      height: "25rem",
+      width: "20rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: "20rem",
+      width: "15rem",
+    },
   },
   carouselContainer: {
     marginLeft: "20rem",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 0,
+      height: "30rem",
+    },
   },
   space: {
-    margin: "0 15rem",
-    marginBottom: "5rem",
+    margin: "0 15rem 5rem 15rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 5rem 10rem 5rem",
+    },
+  },
+  descriptionContainer: {
+    textAlign: "right",
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+    },
   },
   more: {
     textTransform: "none",
   },
-
   icon: {
     width: "1.6rem",
     height: "1.6rem",
     marginLeft: "0.5rem",
     color: theme.palette.common.white,
-  },
-  descriptionContainer: {
-    textAlign: "right",
+    [theme.breakpoints.down("md")]: {
+      width: "1.2rem",
+      height: "1.2rem",
+    },
   },
 }))
 
 const PromotionalProducts = () => {
   const classes = useStyles()
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const mathcesMD = useMediaQuery(theme => theme.breakpoints.down("md"))
 
   const data = useStaticQuery(graphql`
     query GetPromo {
@@ -123,22 +151,29 @@ const PromotionalProducts = () => {
     <Grid
       container
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent={mathcesMD ? "space-around" : "space-between"}
       classes={{ root: classes.mainContainer }}
+      direction={mathcesMD ? "column" : "row"}
     >
       <Grid item classes={{ root: classes.carouselContainer }}>
         <Carousel slides={slides} goToSlide={selectedSlide} />
       </Grid>
       <Grid item classes={{ root: classes.descriptionContainer }}>
-        <Typography variant="h2" paragraph>
+        <Typography
+          variant="h2"
+          paragraph
+          classes={{ root: classes.description }}
+        >
           {slides[selectedSlide].description}
         </Typography>
-        <Button>
-          <Typography variant="h4" classes={{ root: classes.more }}>
-            more
-          </Typography>
-          <FaExternalLinkAlt className={classes.icon} />
-        </Button>
+        <Grid item>
+          <Button>
+            <Typography variant="h4" classes={{ root: classes.more }}>
+              more
+            </Typography>
+            <FaExternalLinkAlt className={classes.icon} />
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   )
