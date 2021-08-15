@@ -4,10 +4,15 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    height: "1.5rem",
-    width: "1.5rem",
+    height: "1.2rem",
+    width: "1.2rem",
     color: theme.palette.common.yellow1,
     marginRight: "4px",
+    "@media (max-width: 1280px)": {
+      height: "1rem",
+      width: "1rem",
+      marginRight: "2px",
+    },
   },
 }))
 

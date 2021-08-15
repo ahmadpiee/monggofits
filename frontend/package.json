@@ -25,7 +25,8 @@
     "react-icons": "^4.2.0",
     "react-lottie": "^1.2.3",
     "react-markdown": "^6.0.3",
-    "react-spring-3d-carousel": "^1.2.1"
+    "react-spring-3d-carousel": "^1.2.1",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "prettier": "2.3.2"

@@ -28,47 +28,29 @@ const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: "2.8rem",
+      fontSize: "2.6rem",
       fontFamily: "Raleway",
       fontStyle: "italic",
       fontWeight: 700,
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "2.6rem",
-      },
-      "@media (max-width:960px)": {
         fontSize: "2.4rem",
       },
-      "@media (max-width:640px)": {
+      "@media (max-width:960px)": {
         fontSize: "2.2rem",
       },
-      "@media (max-width:480px)": {
+      "@media (max-width:640px)": {
         fontSize: "2rem",
+      },
+      "@media (max-width:480px)": {
+        fontSize: "1.8rem",
       },
     },
     h2: {
       fontFamily: "Raleway",
-      fontSize: "2.4rem",
+      fontSize: "2.2rem",
       fontWeight: 500,
       color: white,
-      "@media (max-width:1280px)": {
-        fontSize: "2.2rem",
-      },
-      "@media (max-width:960px)": {
-        fontSize: "2rem",
-      },
-      "@media (max-width:640px)": {
-        fontSize: "1.8rem",
-      },
-      "@media (max-width:480px)": {
-        fontSize: "1.6rem",
-      },
-    },
-    h3: {
-      fontFamily: "Raleway",
-      fontSize: "2.2rem",
-      fontWeight: 300,
-      color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "2rem",
       },
@@ -80,60 +62,77 @@ const theme = createTheme({
       },
       "@media (max-width:480px)": {
         fontSize: "1.4rem",
+      },
+    },
+    h3: {
+      fontFamily: "Raleway",
+      fontSize: "2rem",
+      fontWeight: 300,
+      color: solidBlack,
+      "@media (max-width:1280px)": {
+        fontSize: "1.8rem",
+      },
+      "@media (max-width:960px)": {
+        fontSize: "1.6rem",
+      },
+      "@media (max-width:640px)": {
+        fontSize: "1.4rem",
+      },
+      "@media (max-width:480px)": {
+        fontSize: "1.2rem",
       },
     },
     h4: {
       fontFamily: "Raleway",
       fontStyle: "italic",
       fontWeight: 700,
-      fontSize: "2rem",
+      fontSize: "1.8rem",
       color: white,
       "@media (max-width:1280px)": {
-        fontSize: "1.8rem",
-      },
-      "@media (max-width:960px)": {
         fontSize: "1.6rem",
       },
-      "@media (max-width:640px)": {
+      "@media (max-width:960px)": {
         fontSize: "1.4rem",
       },
-      "@media (max-width:480px)": {
+      "@media (max-width:640px)": {
         fontSize: "1.2rem",
+      },
+      "@media (max-width:480px)": {
+        fontSize: "1.1rem",
       },
     },
     h5: {
       fontFamily: "Raleway",
-      fontSize: "1.8rem",
+      fontSize: "1.6rem",
       fontWeight: 700,
       fontStyle: "italic",
       color: white,
       "@media (max-width:1280px)": {
-        fontSize: "1.6rem",
-      },
-      "@media (max-width:960px)": {
         fontSize: "1.4rem",
       },
-      "@media (max-width:640px)": {
+      "@media (max-width:960px)": {
         fontSize: "1.2rem",
       },
-      "@media (max-width:480px)": {
+      "@media (max-width:640px)": {
         fontSize: "1rem",
+      },
+      "@media (max-width:480px)": {
+        fontSize: "0.9rem",
       },
     },
     h6: {
-      fontSize: "1.5rem",
-      fontFamily: "Raleway",
-      fontStyle: "italic",
-      fontWeight: 700,
+      fontSize: "1.4rem",
+      fontFamily: "Montserrat",
+      fontWeight: 400,
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "1.4",
+        fontSize: "1.3",
       },
       "@media (max-width:960px)": {
-        fontSize: "1.3rem",
+        fontSize: "1.2rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "1.2rem",
+        fontSize: "1.1rem",
       },
     },
     body1: {
@@ -171,11 +170,7 @@ const theme = createTheme({
       },
     },
   },
-  overrides: {
-    "@global": {
-      letterSpacing: "0",
-    },
-  },
+  overrides: {},
 })
 
 export default theme

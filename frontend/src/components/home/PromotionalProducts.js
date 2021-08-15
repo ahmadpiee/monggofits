@@ -28,6 +28,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("lg")]: {
       padding: "8.5rem 5rem",
     },
+    [theme.breakpoints.down("sm")]: {
+      overflow: "hidden",
+    },
   },
   productName: {
     color: "#fff",
@@ -41,28 +44,31 @@ const useStyles = makeStyles(theme => ({
     height: "30rem",
     width: "25rem",
     backgroundColor: "#fff",
-    borderRadius: 20,
+    borderRadius: 10,
     boxShadow: theme.shadows[10],
     [theme.breakpoints.down("sm")]: {
       height: "25rem",
       width: "20rem",
     },
     [theme.breakpoints.down("xs")]: {
-      height: "20rem",
-      width: "15rem",
+      height: "18rem",
+      width: "13rem",
     },
   },
   carouselContainer: {
     marginLeft: "20rem",
     [theme.breakpoints.down("md")]: {
       marginLeft: 0,
-      height: "30rem",
+      height: "25rem",
     },
   },
   space: {
     margin: "0 15rem 5rem 15rem",
     [theme.breakpoints.down("sm")]: {
-      margin: "0 5rem 10rem 5rem",
+      margin: "0 10rem 5rem 10rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: "0 6.5rem 5rem 6.5rem",
     },
   },
   descriptionContainer: {
@@ -75,13 +81,13 @@ const useStyles = makeStyles(theme => ({
     textTransform: "none",
   },
   icon: {
-    width: "1.6rem",
-    height: "1.6rem",
+    width: "1.25rem",
+    height: "1.25rem",
     marginLeft: "0.5rem",
     color: theme.palette.common.white,
     [theme.breakpoints.down("md")]: {
-      width: "1.2rem",
-      height: "1.2rem",
+      width: "1rem",
+      height: "1rem",
     },
   },
 }))

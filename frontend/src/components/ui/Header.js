@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import {
   AppBar,
   Toolbar,
-  Typography,
   Button,
   Tabs,
   Tab,
@@ -18,15 +17,12 @@ import account from "../../images/account.svg"
 import search from "../../images/search.svg"
 import cart from "../../images/cart.svg"
 import menu from "../../images/menu.svg"
+import logo from "../../images/logo.png"
 import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   coloredIndicator: {
     background: "#cf2f2f",
-  },
-  logoText: {
-    color: theme.palette.common.red1,
-    fontSize: theme.palette.logo,
   },
   logoContainer: {
     [theme.breakpoints.down("md")]: {
@@ -51,6 +47,14 @@ const useStyles = makeStyles(theme => ({
   listItemText: {
     color: "#fff",
   },
+  appBar: {
+    padding: "0 1rem",
+    opacity: 0.95,
+    [theme.breakpoints.down("sm")]: {
+      padding: "0 0.5rem",
+    },
+    top: 0,
+  },
 }))
 
 export default function Header({ categories }) {
@@ -74,7 +78,7 @@ export default function Header({ categories }) {
 
   const routes = [
     ...categories,
-    { node: { name: "Contact Us", strapiId: "contact", link: "/contact" } },
+    // { node: { name: "Contact Us", strapiId: "contact", link: "/contact" } },
   ]
 
   const tabs = (
@@ -151,17 +155,18 @@ export default function Header({ categories }) {
   ]
 
   return (
-    <AppBar color="default" position="sticky">
-      <Toolbar>
+    <AppBar
+      color="default"
+      position="sticky"
+      classes={{ root: classes.appBar }}
+    >
+      <Toolbar disableGutters>
         <Button
           component={Link}
           to="/"
           classes={{ root: classes.logoContainer }}
         >
-          <Typography variant="h6">
-            <span className={classes.logoText}>Monggo</span>
-            fits
-          </Typography>
+          <img src={logo} alt="monggofits logo" style={{ maxWidth: "8rem" }} />
         </Button>
 
         {matchesMD ? drawer : tabs}

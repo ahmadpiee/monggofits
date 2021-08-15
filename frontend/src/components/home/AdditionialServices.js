@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "100%",
   },
   serviceTitle: {
-    // fontSize: "1.2rem",
     fontWeight: "bolder",
   },
   link: {},
@@ -21,10 +20,8 @@ const AdditionialServices = () => {
     "Custom Your Own Design?": [
       { label: "Ask our production team", href: "https://wa.me/6281296089640" },
     ],
-    "Tips to choose good fabric": [
-      { label: "Go to our articles", href: "/articles" },
-    ],
-    "Most Questions!": [{ label: "FAQ", href: "/faq" }],
+    "Most Questions": [{ label: "FAQ", href: "/faq" }],
+    "Get Some Tips": [{ label: "Go to our articles", href: "/articles" }],
   }
   const classes = useStyles()
   return (
@@ -50,8 +47,6 @@ const AdditionialServices = () => {
                 component={route.link ? Link : "a"}
                 to={route.link ? route.link : undefined}
                 href={route.href ? route.href : undefined}
-                target="_blank"
-                rel="noopener noreferrer"
                 variant="body1"
                 classes={{ body1: classes.link }}
               >

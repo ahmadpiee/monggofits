@@ -44,7 +44,6 @@ const useStyles = makeStyles(theme => ({
   copyright: {
     marginTop: "2rem",
     fontSize: "10px",
-    fontStyle: "italic",
     textAlign: "start",
     color: "#b8b8b8",
   },
@@ -55,11 +54,6 @@ const Footer = () => {
 
   const icons = [
     {
-      name: whatsapp,
-      alt: "whatsapp",
-      link: "https://wa.me/6281296089640",
-    },
-    {
       name: instagram,
       alt: "instagram",
       link: "https://www.instagram.com/monggofits",
@@ -68,6 +62,11 @@ const Footer = () => {
       name: facebook,
       alt: "facebook",
       link: "https://web.facebook.com/Monggofits-Store-103824892008168",
+    },
+    {
+      name: whatsapp,
+      alt: "whatsapp",
+      link: "https://wa.me/6281296089640",
     },
   ]
 
@@ -78,7 +77,7 @@ const Footer = () => {
       { label: "Terms & Conditions", link: "/terms-conditions" },
     ],
     "Customer Service": [
-      { label: "Contact Us", link: "/contact" },
+      // { label: "Contact Us", link: "/contact" },
       { label: "0813-1853-4781", href: "tel:(+62)81318534781" },
       { label: "monggo.idn@gmail.com", href: "mailto:monggo.idn@gmail.com" },
     ],
@@ -99,7 +98,9 @@ const Footer = () => {
                 classes={{ root: classes.linkColumn }}
               >
                 <Grid item>
-                  <Typography variant="h5">{category}</Typography>
+                  <Typography variant="h6" style={{ color: "white" }}>
+                    {category}
+                  </Typography>
                 </Grid>
                 {routes[category].map(route => (
                   <Grid item key={route.label}>

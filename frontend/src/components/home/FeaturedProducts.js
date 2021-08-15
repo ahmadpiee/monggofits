@@ -8,6 +8,7 @@ import {
   Button,
   Chip,
   makeStyles,
+  useMediaQuery,
 } from "@material-ui/core"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import Rating from "./Rating"
@@ -15,11 +16,25 @@ import Formatter from "../Formatter"
 
 const useStyles = makeStyles(theme => ({
   background: {
-    background: "#fff",
-    height: "200rem",
+    background: theme.palette.common.white,
+    minHeight: "200rem",
     padding: "0 2.5rem",
+    [theme.breakpoints.down("md")]: {
+      minHeight: "240rem",
+    },
   },
-  featuredImage: { height: "20rem", width: "20rem" },
+  featuredImage: {
+    height: "20rem",
+    width: "20rem",
+    [theme.breakpoints.down("md")]: {
+      height: "15rem",
+      width: "15rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "12.5rem",
+      width: "12.5rem",
+    },
+  },
   frame: {
     backgroundColor: "#fff",
     width: "24.5rem",
@@ -32,6 +47,14 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "white",
     },
     zIndex: 1,
+    [theme.breakpoints.down("md")]: {
+      height: "19.5rem",
+      width: "21rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "17.5rem",
+      width: "19rem",
+    },
   },
   slide: {
     backgroundColor: theme.palette.secondary.main,
@@ -39,19 +62,33 @@ const useStyles = makeStyles(theme => ({
     width: "24.5rem",
     transition: "transform 0.25s ease",
     zIndex: 0,
-    padding: "1.5rem 2rem",
+    padding: "1rem",
+    [theme.breakpoints.down("md")]: {
+      height: "15rem",
+      width: "19.5rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "14rem",
+      width: "18.5rem",
+    },
   },
   slideRight: {
     borderTopRightRadius: "5px",
     borderBottomRightRadius: "5px",
     transform: "translate(24.5rem, 0px)",
-    boxShadow: theme.shadows[5],
   },
   slideLeft: {
     borderTopLeftRadius: "5px",
     borderBottomLeftRadius: "5px",
     transform: "translate(-24.5rem, 0px)",
-    boxShadow: theme.shadows[5],
+  },
+  slideDown: {
+    borderBottomLeftRadius: "5px",
+    borderBottomRightRadius: "5px",
+    transform: "translate(0px, 17rem)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "translate(0px, 15.5rem)",
+    },
   },
   productContainer: {
     margin: "5rem 0",
@@ -75,11 +112,16 @@ const useStyles = makeStyles(theme => ({
     width: "1rem",
     color: theme.palette.common.white,
   },
+  titleContainer: {
+    textAlign: "center",
+    alignSelf: "center",
+  },
 }))
 
 const FeaturedProducts = () => {
   const classes = useStyles()
   const [expanded, setExpanded] = useState(null)
+  const matchesMD = useMediaQuery(theme => theme.breakpoints.down("md"))
 
   const data = useStaticQuery(graphql`
     query getFeaturedProduct {
@@ -104,23 +146,25 @@ const FeaturedProducts = () => {
     <Grid
       container
       direction="column"
-      justifyContent="center"
+      justifyContent={matchesMD ? "space-evenly" : "center"}
       classes={{ root: classes.background }}
     >
-      <Typography
-        variant="h1"
-        classes={{ root: classes.title }}
-        style={{ alignSelf: "center" }}
-      >
-        <span style={{ color: "#cf2f2f" }}>New</span> Arrivals
-      </Typography>
+      <Grid item classes={{ root: classes.titleContainer }}>
+        <Typography variant="h1">
+          <span style={{ color: "#cf2f2f" }}>New</span> Arrivals
+        </Typography>
+        <Typography variant="body1">
+          See and discover new products, choose yours
+        </Typography>
+      </Grid>
       {data.allStrapiProduct.edges.map(({ node }, i) => {
-        const alignment =
-          i === 0 || i === 3
-            ? "flex-start"
-            : i === 1 || i === 4
-            ? "center"
-            : "flex-end"
+        const alignment = matchesMD
+          ? "center"
+          : i === 0 || i === 3
+          ? "flex-start"
+          : i === 1 || i === 4
+          ? "center"
+          : "flex-end"
         return (
           <Grid
             item
@@ -163,17 +207,17 @@ const FeaturedProducts = () => {
               classes={{
                 root: clsx(classes.slide, {
                   [classes.slideLeft]:
-                    expanded === i && alignment === "flex-end",
+                    !matchesMD && expanded === i && alignment === "flex-end",
                   [classes.slideRight]:
+                    !matchesMD &&
                     expanded === i &&
                     (alignment === "flex-start" || alignment === "center"),
+                  [classes.slideDown]: matchesMD && expanded === i,
                 }),
               }}
             >
               <Grid item>
-                <Typography variant="h4" style={{ fontSize: "1.6rem" }}>
-                  {node.name}
-                </Typography>
+                <Typography variant="h5">{node.name}</Typography>
               </Grid>
               <Grid item style={{ margin: "0.5rem 0" }}>
                 <Rating number={0} />
