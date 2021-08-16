@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: "20vh",
     padding: "2.5rem",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
   },
   buttonContainer: {
     backgroundColor: theme.palette.secondary.main,

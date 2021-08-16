@@ -1,7 +1,7 @@
 import React from "react"
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 import Lottie from "react-lottie"
-import animationData from "../../images/hero.json"
+import animationData from "@images/hero.json"
 
 const useStyles = makeStyles(theme => ({
   textContainer: {
@@ -23,7 +23,7 @@ const HeroBlock = () => {
       container
       justifyContent="space-around"
       alignItems="center"
-      style={{ marginBottom: "4rem" }}
+      style={{ marginBottom: "4rem", minHeight: "65vh" }}
     >
       <Grid item classes={{ root: classes.textContainer }}>
         <Grid container direction="column">
@@ -39,11 +39,8 @@ const HeroBlock = () => {
           </Typography>
         </Grid>
       </Grid>
-
       <Grid item>
-        <div style={{ maxWidth: "45rem" }}>
-          <Lottie options={defaultOptions} width="100%" />
-        </div>
+        <Lottie options={defaultOptions} width="100%" />
       </Grid>
     </Grid>
   )

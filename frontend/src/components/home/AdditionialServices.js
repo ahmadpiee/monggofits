@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
   linkContainerCol: {
     maxWidth: "100%",
+    marginBottom: "0.5rem",
   },
   serviceTitle: {
     fontWeight: "bolder",
@@ -21,7 +22,6 @@ const AdditionialServices = () => {
       { label: "Ask our production team", href: "https://wa.me/6281296089640" },
     ],
     "Most Questions": [{ label: "FAQ", href: "/faq" }],
-    "Get Some Tips": [{ label: "Go to our articles", href: "/articles" }],
   }
   const classes = useStyles()
   return (
@@ -32,9 +32,9 @@ const AdditionialServices = () => {
           classes={{ root: classes.linkContainerCol }}
           item
           container
-          justifyContent="space-between"
           direction="column"
           alignItems="center"
+          justifyContent="space-evenly"
         >
           <Grid item>
             <Typography variant="h6" classes={{ root: classes.serviceTitle }}>

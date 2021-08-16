@@ -5,6 +5,19 @@
  */
 
 // You can delete this file if you're not using it
+const path = require("path")
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@components": path.resolve(__dirname, "src/components"),
+        "@templates": path.resolve(__dirname, "src/templates"),
+        "@images": path.resolve(__dirname, "src/images"),
+      },
+    },
+  })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -42,9 +55,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   products.forEach(product => {
     createPage({
-      path: `/${product.node.category.name.toLowerCase()}/${encodeURIComponent(
+      path: `/${product.node.category.name.toLowerCase()}/${
         product.node.name.split(" ")[0]
-      )}`,
+      }`,
       component: require.resolve("./src/templates/ProductDetail.js"),
       context: {
         name: product.node.name,

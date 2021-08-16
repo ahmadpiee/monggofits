@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import Layout from "../components/ui/Layout"
+import Layout from "@components/ui/Layout"
 import { makeStyles, Typography, Grid } from "@material-ui/core"
 import Lottie from "react-lottie"
-import animationData from "../images/404.json"
+import animationData from "@images/404.json"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {

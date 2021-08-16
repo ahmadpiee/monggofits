@@ -13,12 +13,12 @@ import {
   ListItemText,
   makeStyles,
 } from "@material-ui/core"
-import account from "../../images/account.svg"
-import search from "../../images/search.svg"
-import cart from "../../images/cart.svg"
-import menu from "../../images/menu.svg"
-import logo from "../../images/logo.png"
 import { Link } from "gatsby"
+import account from "@images/account.svg"
+import search from "@images/search.svg"
+import cart from "@images/cart.svg"
+import menu from "@images/menu.svg"
+import logo from "@images/logo.png"
 
 const useStyles = makeStyles(theme => ({
   coloredIndicator: {
@@ -49,7 +49,6 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     padding: "0 1rem",
-    opacity: 0.95,
     [theme.breakpoints.down("sm")]: {
       padding: "0 0.5rem",
     },
@@ -159,6 +158,7 @@ export default function Header({ categories }) {
       color="default"
       position="sticky"
       classes={{ root: classes.appBar }}
+      elevation={0}
     >
       <Toolbar disableGutters>
         <Button

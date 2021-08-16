@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/ui/Layout"
+import Layout from "@components/ui/Layout"
 
 const Register = () => {
   return (

@@ -1,10 +1,9 @@
 import React from "react"
 import { Grid, Typography, makeStyles, IconButton } from "@material-ui/core"
 import { Link } from "gatsby"
-
-import facebook from "../../images/fb.svg"
-import instagram from "../../images/ig.svg"
-import whatsapp from "../../images/wa.svg"
+import facebook from "@images/fb.svg"
+import instagram from "@images/ig.svg"
+import whatsapp from "@images/wa.svg"
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -77,7 +76,6 @@ const Footer = () => {
       { label: "Terms & Conditions", link: "/terms-conditions" },
     ],
     "Customer Service": [
-      // { label: "Contact Us", link: "/contact" },
       { label: "0813-1853-4781", href: "tel:(+62)81318534781" },
       { label: "monggo.idn@gmail.com", href: "mailto:monggo.idn@gmail.com" },
     ],

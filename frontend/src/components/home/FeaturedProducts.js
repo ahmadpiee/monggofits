@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import Rating from "./Rating"
-import Formatter from "../Formatter"
+import Formatter from "@components/Formatter"
 
 const useStyles = makeStyles(theme => ({
   background: {

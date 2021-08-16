@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core"
 import Carousel from "react-spring-3d-carousel"
 import clsx from "clsx"
-import promoAdornment from "../../images/promoAdornment.png"
+import promoAdornment from "@images/promoAdornment.png"
 import { FaExternalLinkAlt } from "react-icons/fa"
 
 const useStyles = makeStyles(theme => ({
