@@ -10,9 +10,10 @@ import {
   makeStyles,
   useMediaQuery,
 } from "@material-ui/core"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { GoDetailsIcon } from "@components/Icons"
 import Rating from "./Rating"
 import Formatter from "@components/Formatter"
+import theme from "@components/ui/theme"
 
 const useStyles = makeStyles(theme => ({
   background: {
@@ -107,11 +108,7 @@ const useStyles = makeStyles(theme => ({
     padding: "0",
     textTransform: "none",
   },
-  icon: {
-    height: "1rem",
-    width: "1rem",
-    color: theme.palette.common.white,
-  },
+
   titleContainer: {
     textAlign: "center",
     alignSelf: "center",
@@ -150,7 +147,7 @@ const FeaturedProducts = () => {
       classes={{ root: classes.background }}
     >
       <Grid item classes={{ root: classes.titleContainer }}>
-        <Typography variant="h1">
+        <Typography variant="h2">
           <span style={{ color: "#cf2f2f" }}>New</span> Arrivals
         </Typography>
         <Typography variant="body1">
@@ -188,11 +185,9 @@ const FeaturedProducts = () => {
                   className={classes.featuredImage}
                 />
                 <Typography
-                  variant="h1"
+                  variant="body1"
                   style={{
-                    fontSize: "1rem",
-                    fontWeight: "bolder",
-                    color: "#3f3f3f",
+                    color: theme.palette.primary.main,
                     padding: "1rem",
                   }}
                 >
@@ -217,7 +212,12 @@ const FeaturedProducts = () => {
               }}
             >
               <Grid item>
-                <Typography variant="h5">{node.name}</Typography>
+                <Typography
+                  variant="h6"
+                  style={{ color: theme.palette.common.white }}
+                >
+                  {node.name}
+                </Typography>
               </Grid>
               <Grid item style={{ margin: "0.5rem 0" }}>
                 <Rating number={0} />
@@ -230,10 +230,13 @@ const FeaturedProducts = () => {
               </Grid>
               <Grid item classes={{ root: classes.detailsContainer }}>
                 <Button classes={{ root: classes.detailsButton }}>
-                  <Typography variant="h5" style={{ marginRight: "0.5rem" }}>
+                  <Typography
+                    variant="h6"
+                    style={{ color: theme.palette.common.white }}
+                  >
                     Details
                   </Typography>
-                  <FaExternalLinkAlt className={classes.icon} />
+                  <GoDetailsIcon />
                 </Button>
               </Grid>
             </Grid>

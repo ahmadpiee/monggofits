@@ -14,15 +14,13 @@ import {
   makeStyles,
 } from "@material-ui/core"
 import { Link } from "gatsby"
-import account from "@images/account.svg"
-import search from "@images/search.svg"
-import cart from "@images/cart.svg"
-import menu from "@images/menu.svg"
 import logo from "@images/logo.png"
+import { MenuBarIcon, UserIcon, CartIcon, SearchIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   coloredIndicator: {
     background: "#cf2f2f",
+    alignSelf: "flex-end",
   },
   logoContainer: {
     [theme.breakpoints.down("md")]: {
@@ -36,10 +34,6 @@ const useStyles = makeStyles(theme => ({
   tab: {
     ...theme.typography.body1,
     fontWeight: 600,
-  },
-  icon: {
-    height: "1.2rem",
-    width: "1.2rem",
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
@@ -128,25 +122,25 @@ export default function Header({ categories }) {
 
   const icons = [
     {
-      name: search,
+      name: <SearchIcon />,
       alt: "search",
       visible: true,
       onClick: () => console.log("search"),
     },
     {
-      name: cart,
+      name: <CartIcon />,
       alt: "cart",
       visible: true,
       link: "/cart",
     },
     {
-      name: account,
+      name: <UserIcon />,
       alt: "account",
       visible: !matchesMD,
       link: "/account",
     },
     {
-      name: menu,
+      name: <MenuBarIcon />,
       alt: "menu",
       visible: matchesMD,
       onClick: () => setDrawerOpen(true),
@@ -180,7 +174,7 @@ export default function Header({ categories }) {
                 to={icon.onClick ? undefined : icon.link}
                 key={icon.alt}
               >
-                <img className={classes.icon} src={icon.name} alt={icon.alt} />
+                {icon.name}
               </IconButton>
             )
           }

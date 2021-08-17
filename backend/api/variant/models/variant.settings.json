@@ -45,6 +45,26 @@
     "product": {
       "via": "variants",
       "model": "product"
+    },
+    "colorLabel": {
+      "type": "enumeration",
+      "enum": [
+        "Amber",
+        "Army",
+        "Brown",
+        "BottleGreen",
+        "Cream",
+        "Orange",
+        "Pink",
+        "Black",
+        "White",
+        "Maroon",
+        "Navy",
+        "GrayMisty",
+        "BlackMisty",
+        "NavyMisty",
+        "WhiteMisty"
+      ]
     }
   }
 }

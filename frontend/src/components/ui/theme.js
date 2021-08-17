@@ -29,8 +29,9 @@ const theme = createTheme({
   typography: {
     h1: {
       fontSize: "2.6rem",
-      fontFamily: "Raleway",
+      fontFamily: "Lato",
       fontStyle: "italic",
+      letterSpacing: "0.35px",
       fontWeight: 700,
       color: solidBlack,
       "@media (max-width:1280px)": {
@@ -47,10 +48,11 @@ const theme = createTheme({
       },
     },
     h2: {
-      fontFamily: "Raleway",
+      fontFamily: "Lato",
       fontSize: "2.2rem",
-      fontWeight: 500,
-      color: white,
+      letterSpacing: "0.35px",
+      fontWeight: 600,
+      color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "2rem",
       },
@@ -65,9 +67,10 @@ const theme = createTheme({
       },
     },
     h3: {
-      fontFamily: "Raleway",
+      fontFamily: "Lato",
       fontSize: "2rem",
-      fontWeight: 300,
+      letterSpacing: "0.35px",
+      fontWeight: 600,
       color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "1.8rem",
@@ -83,11 +86,12 @@ const theme = createTheme({
       },
     },
     h4: {
-      fontFamily: "Raleway",
+      fontFamily: "Lato",
       fontStyle: "italic",
-      fontWeight: 700,
+      letterSpacing: "0.35px",
+      fontWeight: 600,
       fontSize: "1.8rem",
-      color: white,
+      color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "1.6rem",
       },
@@ -102,11 +106,12 @@ const theme = createTheme({
       },
     },
     h5: {
-      fontFamily: "Raleway",
+      fontFamily: "Lato",
       fontSize: "1.6rem",
-      fontWeight: 700,
+      letterSpacing: "0.35px",
+      fontWeight: 600,
       fontStyle: "italic",
-      color: white,
+      color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "1.4rem",
       },
@@ -122,8 +127,9 @@ const theme = createTheme({
     },
     h6: {
       fontSize: "1.4rem",
-      fontFamily: "Montserrat",
-      fontWeight: 400,
+      fontFamily: "Lato",
+      letterSpacing: "0.35px",
+      fontWeight: 600,
       color: solidBlack,
       "@media (max-width:1280px)": {
         fontSize: "1.3",
@@ -136,37 +142,39 @@ const theme = createTheme({
       },
     },
     body1: {
-      fontFamily: "Montserrat",
-      fontSize: "0.95rem",
+      fontFamily: "Lato",
+      fontSize: "1rem",
+      letterSpacing: "0.25px",
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "0.9rem",
+        fontSize: "0.95rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "0.85rem",
+        fontSize: "0.9rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "0.8rem",
+        fontSize: "0.85rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "0.75rem",
+        fontSize: "0.8rem",
       },
     },
     body2: {
-      fontFamily: "Montserrat",
-      fontSize: "0.95rem",
+      fontFamily: "Lato",
+      fontSize: "1rem",
+      letterSpacing: "0.25px",
       color: white,
       "@media (max-width:1280px)": {
-        fontSize: "0.9rem",
+        fontSize: "0.95rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "0.85rem",
+        fontSize: "0.9rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "0.8rem",
+        fontSize: "0.85rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "0.75rem",
+        fontSize: "0.8rem",
       },
     },
   },

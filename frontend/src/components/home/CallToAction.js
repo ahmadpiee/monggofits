@@ -7,16 +7,16 @@ import {
   useMediaQuery,
 } from "@material-ui/core"
 import { Link } from "gatsby"
-import { FaLocationArrow } from "react-icons/fa"
+import { RightArrowIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    background:
-      "linear-gradient(0deg, rgba(245,198,3,1) 0%, rgba(237,231,52,1) 100%)",
+    background: theme.palette.common.yellow1,
     minHeight: "20vh",
     padding: "2.5rem",
     alignItems: "center",
     justifyContent: "space-around",
+    marginTop: "4rem",
   },
   buttonContainer: {
     backgroundColor: theme.palette.secondary.main,
@@ -24,19 +24,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[5],
   },
   button: {
-    padding: "0.5rem",
-  },
-  signup: {
-    marginRight: "0.5rem",
-  },
-  icon: {
-    height: "1rem",
-    width: "1rem",
-    color: theme.palette.common.white,
-    [theme.breakpoints.down("md")]: {
-      height: "0.8rem",
-      width: "0.8rem",
-    },
+    padding: "5px 10px",
   },
 }))
 
@@ -74,10 +62,8 @@ const CallToAction = () => {
           to="/register"
           classes={{ root: classes.button }}
         >
-          <Typography variant="body2" classes={{ root: classes.signup }}>
-            Sign up for free
-          </Typography>
-          <FaLocationArrow className={classes.icon} />
+          <Typography variant="body2">Sign up for free</Typography>
+          <RightArrowIcon />
         </Button>
       </Grid>
     </Grid>

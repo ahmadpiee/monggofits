@@ -2,10 +2,10 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Monggofits`,
+    description: `Monggofits, Clothing Line, Local Madness, Local Pride, Local Brand, Hype Beast`,
+    author: `@monggofits`,
+    siteUrl: `https://monggofits.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,7 +14,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Raleway:i7:latin", "Montserrat:n6,n5,n4,n3:latin"],
+          families: ["Lato:n7,n6,n5,n4,n3,i7,i6,i5,i4,i3:latin"],
         },
       },
     },
@@ -22,7 +22,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `${process.env.GATSBY_STRAPI_URL}`,
-        queryLimit: 1000, // Defaults to 100
+        queryLimit: 10000, // Defaults to 100
         collectionTypes: [`product`, `category`, `variant`],
       },
     },

@@ -1,9 +1,7 @@
 import React from "react"
 import { Grid, Typography, makeStyles, IconButton } from "@material-ui/core"
 import { Link } from "gatsby"
-import facebook from "@images/fb.svg"
-import instagram from "@images/ig.svg"
-import whatsapp from "@images/wa.svg"
+import { FacebookIcon, InstagramIcon, WhatsappIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -28,10 +26,6 @@ const useStyles = makeStyles(theme => ({
       marginTop: "1rem",
     },
   },
-  icon: {
-    height: "1.6rem",
-    width: "1.6rem",
-  },
   "@global": {
     body: {
       margin: 0,
@@ -53,18 +47,18 @@ const Footer = () => {
 
   const icons = [
     {
-      name: instagram,
-      alt: "instagram",
+      id: 1,
+      name: <InstagramIcon />,
       link: "https://www.instagram.com/monggofits",
     },
     {
-      name: facebook,
-      alt: "facebook",
+      id: 2,
+      name: <FacebookIcon />,
       link: "https://web.facebook.com/Monggofits-Store-103824892008168",
     },
     {
-      name: whatsapp,
-      alt: "whatsapp",
+      id: 3,
+      name: <WhatsappIcon />,
       link: "https://wa.me/6281296089640",
     },
   ]
@@ -123,16 +117,16 @@ const Footer = () => {
         <Grid item>
           <Grid container direction="column" alignItems="center">
             {icons.map(icon => (
-              <Grid item key={icon.alt}>
+              <Grid item key={icon.id}>
                 <IconButton
-                  classes={{ root: classes.icon }}
                   disableRipple
                   component="a"
                   href={icon.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ margin: 0 }}
                 >
-                  <img src={icon.name} alt={icon.alt} />
+                  {icon.name}
                 </IconButton>
               </Grid>
             ))}

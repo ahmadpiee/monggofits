@@ -1,13 +1,19 @@
 import React from "react"
+import { Grid, makeStyles } from "@material-ui/core"
 import Layout from "@components/ui/Layout"
-import { Grid } from "@material-ui/core"
 import DynamicToolbar from "@components/product-list/DynamicToolbar"
 
+const useStyles = makeStyles(theme => ({}))
 
-export default function ProductList({ pageContext }) {
+const ProductList = ({ pageContext }) => {
+  const classes = useStyles()
   return (
     <Layout>
-      <Grid cotnainer direction="column"></Grid>
+      <Grid container direction="column" alignItems="center">
+        <DynamicToolbar filterOptions={pageContext.filterOptions} />
+      </Grid>
     </Layout>
   )
 }
+
+export default ProductList

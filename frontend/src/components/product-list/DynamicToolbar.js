@@ -1,16 +1,30 @@
 import React from "react"
-import { Grid, Typography, makeStyles } from "@material-ui/core"
+import { Grid, makeStyles } from "@material-ui/core"
+import FunctionContainer from "./FunctionContainer"
 
-const useStyles = makeStyles(theme => ({}))
+const useStyles = makeStyles(theme => ({
+  toolBarContainer: {
+    border: `5px solid ${theme.palette.secondary.main}`,
+    borderRadius: 20,
+    width: "95%",
+    minHeight: "20rem",
+    height: "auto",
+  },
+}))
 
-export default function DynamicToolbar() {
+const DynamicToolbar = ({ filterOptions }) => {
   const classes = useStyles()
 
   return (
-    <Grid item container direction="column">
-      <Grid item>
-        <h1>test</h1>
-      </Grid>
+    <Grid
+      item
+      container
+      direction="column"
+      classes={{ root: classes.toolBarContainer }}
+    >
+      <FunctionContainer filterOptions={filterOptions} />
     </Grid>
   )
 }
+
+export default DynamicToolbar

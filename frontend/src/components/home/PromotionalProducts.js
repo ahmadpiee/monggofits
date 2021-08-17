@@ -11,7 +11,8 @@ import {
 import Carousel from "react-spring-3d-carousel"
 import clsx from "clsx"
 import promoAdornment from "@images/promoAdornment.png"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { GoDetailsIcon } from "@components/Icons"
+import theme from "@components/ui/theme"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -75,19 +76,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: "right",
     [theme.breakpoints.down("md")]: {
       textAlign: "center",
-    },
-  },
-  more: {
-    textTransform: "none",
-  },
-  icon: {
-    width: "1.25rem",
-    height: "1.25rem",
-    marginLeft: "0.5rem",
-    color: theme.palette.common.white,
-    [theme.breakpoints.down("md")]: {
-      width: "1rem",
-      height: "1rem",
     },
   },
 }))
@@ -168,16 +156,19 @@ const PromotionalProducts = () => {
         <Typography
           variant="h2"
           paragraph
-          classes={{ root: classes.description }}
+          style={{ color: theme.palette.common.white }}
         >
           {slides[selectedSlide].description}
         </Typography>
         <Grid item>
           <Button>
-            <Typography variant="h4" classes={{ root: classes.more }}>
+            <Typography
+              variant="h4"
+              style={{ color: theme.palette.common.white }}
+            >
               more
             </Typography>
-            <FaExternalLinkAlt className={classes.icon} />
+            <GoDetailsIcon />
           </Button>
         </Grid>
       </Grid>
