@@ -3,6 +3,7 @@ import { createTheme } from "@material-ui/core"
 const primary = "#050505"
 const secondary = "#3f3f3f"
 const solidBlack = "#000"
+const lightGray = "#d4d4d4"
 const white = "#ffffff"
 const red1 = "#cf2f2f"
 const red2 = "#881c1c"
@@ -24,6 +25,7 @@ const theme = createTheme({
       red2,
       white,
       solidBlack,
+      lightGray,
     },
   },
   typography: {

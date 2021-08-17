@@ -9,7 +9,7 @@ import {
   FormGroup,
   Checkbox,
 } from "@material-ui/core"
-import { SortIcon, CloseIcon, FilterIcon } from "@components/Icons"
+import { CloseIcon, FilterIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {

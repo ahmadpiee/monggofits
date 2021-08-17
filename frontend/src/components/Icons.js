@@ -1,9 +1,10 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core"
 
-// list icons
+// list icons (sort alphabetically)
 import { AiOutlineShopping, AiOutlineMenu } from "react-icons/ai"
 import { BiSort, BiFilterAlt, BiLinkExternal, BiUser } from "react-icons/bi"
+import { BsGrid, BsListUl } from "react-icons/bs"
 import { CgArrowLongRight } from "react-icons/cg"
 import {
   FaInstagram,
@@ -88,71 +89,200 @@ const useStyles = makeStyles(theme => ({
 }))
 
 // icons for toolbar
-export const SortIcon = ({ style }) => {
+export const SortIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <BiSort className={classes.toolbarIcon} style={style} />
+  return (
+    <BiSort
+      className={classes.toolbarIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const FilterIcon = ({ style }) => {
+export const FilterIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <BiFilterAlt className={classes.toolbarIcon} style={style} />
+  return (
+    <BiFilterAlt
+      className={classes.toolbarIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const CloseIcon = ({ style }) => {
+export const CloseIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <IoMdCloseCircle className={classes.toolbarIcon} style={style} />
+  return (
+    <IoMdCloseCircle
+      className={classes.toolbarIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
 
 // general
-export const GoDetailsIcon = ({ style }) => {
+export const GoDetailsIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <BiLinkExternal className={classes.goDetailsIcon} style={style} />
+  return (
+    <BiLinkExternal
+      className={classes.goDetailsIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const RightArrowIcon = ({ style }) => {
+export const RightArrowIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <CgArrowLongRight className={classes.rightArrowIcon} style={style} />
+  return (
+    <CgArrowLongRight
+      className={classes.rightArrowIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
 
 // Social Media Icons
-export const InstagramIcon = ({ style }) => {
+export const InstagramIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaInstagram className={classes.socialMedia} style={style} />
+  return (
+    <FaInstagram
+      className={classes.socialMedia}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const FacebookIcon = ({ style }) => {
+export const FacebookIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaFacebook className={classes.socialMedia} style={style} />
+  return (
+    <FaFacebook
+      className={classes.socialMedia}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const WhatsappIcon = ({ style }) => {
+export const WhatsappIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaWhatsapp className={classes.socialMedia} style={style} />
+  return (
+    <FaWhatsapp
+      className={classes.socialMedia}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
 
 // Header Icons
-export const MenuBarIcon = ({ style }) => {
+export const MenuBarIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <AiOutlineMenu className={classes.headerIcons} style={style} />
+  return (
+    <AiOutlineMenu
+      className={classes.headerIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const UserIcon = ({ style }) => {
+export const UserIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <BiUser className={classes.headerIcons} style={style} />
+  return (
+    <BiUser
+      className={classes.headerIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const CartIcon = ({ style }) => {
+export const CartIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <AiOutlineShopping className={classes.headerIcons} style={style} />
+  return (
+    <AiOutlineShopping
+      className={classes.headerIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const SearchIcon = ({ style }) => {
+export const SearchIcon = ({ style, color, size }) => {
   const classes = useStyles()
-  return <IoSearchOutline className={classes.headerIcons} style={style} />
+  return (
+    <IoSearchOutline
+      className={classes.headerIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
 
 // Rating Icons
-export const StarIconFill = ({ style }) => {
+export const StarIconFill = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaStar className={classes.ratingIcons} style={style} />
+  return (
+    <FaStar
+      className={classes.ratingIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const StarIconOutline = ({ style }) => {
+export const StarIconOutline = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaRegStar className={classes.ratingIcons} style={style} />
+  return (
+    <FaRegStar
+      className={classes.ratingIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
-export const StarIconHalf = ({ style }) => {
+export const StarIconHalf = ({ style, color, size }) => {
   const classes = useStyles()
-  return <FaStarHalfAlt className={classes.ratingIcons} style={style} />
+  return (
+    <FaStarHalfAlt
+      className={classes.ratingIcons}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+
+// toolbar icons
+export const GridIcon = ({ style, color, size }) => {
+  const classes = useStyles()
+  return (
+    <BsGrid
+      className={classes.toolbarIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+export const ListIcon = ({ style, color, size }) => {
+  const classes = useStyles()
+  return (
+    <BsListUl
+      className={classes.toolbarIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
 }
