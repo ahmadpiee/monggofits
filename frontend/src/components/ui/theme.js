@@ -1,6 +1,6 @@
 import { createTheme } from "@material-ui/core"
 
-const primary = "#050505"
+const primary = "#0e0e0e"
 const secondary = "#3f3f3f"
 const solidBlack = "#000"
 const lightGray = "#d4d4d4"
@@ -31,7 +31,7 @@ const theme = createTheme({
   typography: {
     h1: {
       fontSize: "2.6rem",
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       fontStyle: "italic",
       letterSpacing: "0.35px",
       fontWeight: 700,
@@ -50,7 +50,7 @@ const theme = createTheme({
       },
     },
     h2: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       fontSize: "2.2rem",
       letterSpacing: "0.35px",
       fontWeight: 600,
@@ -69,7 +69,7 @@ const theme = createTheme({
       },
     },
     h3: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       fontSize: "2rem",
       letterSpacing: "0.35px",
       fontWeight: 600,
@@ -88,7 +88,7 @@ const theme = createTheme({
       },
     },
     h4: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       fontStyle: "italic",
       letterSpacing: "0.35px",
       fontWeight: 600,
@@ -108,7 +108,7 @@ const theme = createTheme({
       },
     },
     h5: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       fontSize: "1.6rem",
       letterSpacing: "0.35px",
       fontWeight: 600,
@@ -129,7 +129,7 @@ const theme = createTheme({
     },
     h6: {
       fontSize: "1.4rem",
-      fontFamily: "Lato",
+      fontFamily: "Roboto Mono",
       letterSpacing: "0.35px",
       fontWeight: 600,
       color: solidBlack,
@@ -144,7 +144,7 @@ const theme = createTheme({
       },
     },
     body1: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Slab",
       fontSize: "1rem",
       letterSpacing: "0.25px",
       color: solidBlack,
@@ -162,7 +162,7 @@ const theme = createTheme({
       },
     },
     body2: {
-      fontFamily: "Lato",
+      fontFamily: "Roboto Slab",
       fontSize: "1rem",
       letterSpacing: "0.25px",
       color: white,
@@ -180,7 +180,32 @@ const theme = createTheme({
       },
     },
   },
-  overrides: {},
+  overrides: {
+    MuiChip: {
+      root: {
+        background: white,
+      },
+      label: {
+        fontFamily: "Roboto Mono",
+        fontSize: "1rem",
+        fontWeight: 700,
+        letterSpacing: "0.25px",
+        color: solidBlack,
+        "@media (max-width:1280px)": {
+          fontSize: "0.95rem",
+        },
+        "@media (max-width:960px)": {
+          fontSize: "0.9rem",
+        },
+        "@media (max-width:640px)": {
+          fontSize: "0.85rem",
+        },
+        "@media (max-width:480px)": {
+          fontSize: "0.8rem",
+        },
+      },
+    },
+  },
 })
 
 export default theme

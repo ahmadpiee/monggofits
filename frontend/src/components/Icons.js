@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core"
 
 // list icons (sort alphabetically)
 import { AiOutlineShopping, AiOutlineMenu } from "react-icons/ai"
-import { BiSort, BiFilterAlt, BiLinkExternal, BiUser } from "react-icons/bi"
+import { BiLinkExternal, BiUser } from "react-icons/bi"
 import { BsGrid, BsListUl } from "react-icons/bs"
 import { CgArrowLongRight } from "react-icons/cg"
 import {
@@ -14,29 +14,30 @@ import {
   FaStarHalfAlt,
   FaStar,
 } from "react-icons/fa"
+import { FiSliders, FiFilter, FiChevronDown } from "react-icons/fi"
 import { IoMdCloseCircle } from "react-icons/io"
 import { IoSearchOutline } from "react-icons/io5"
 
 const useStyles = makeStyles(theme => ({
   toolbarIcon: {
-    height: "2.25rem",
-    width: "2.25rem",
+    height: "2.5rem",
+    width: "2.5rem",
     color: theme.palette.common.white,
     "@media (max-width:1280px)": {
-      height: "2.1rem",
-      width: "2.1rem",
+      height: "2.25rem",
+      width: "2.25rem",
     },
     "@media (max-width:960px)": {
-      height: "1.9rem",
-      width: "1.9rem",
+      height: "2rem",
+      width: "2rem",
     },
     "@media (max-width:640px)": {
-      height: "1.8rem",
-      width: "1.8rem",
+      height: "1.95rem",
+      width: "1.95rem",
     },
     "@media (max-width:480px)": {
-      height: "1.7rem",
-      width: "1.7rem",
+      height: "1.9rem",
+      width: "1.9rem",
     },
   },
   goDetailsIcon: {
@@ -86,13 +87,39 @@ const useStyles = makeStyles(theme => ({
       marginRight: "2px",
     },
   },
+  viewSettingIcon: {
+    height: "1.95rem",
+    width: "1.95rem",
+    color: theme.palette.common.white,
+    "@media (max-width:1280px)": {
+      height: "1.9rem",
+      width: "1.9rem",
+    },
+    "@media (max-width:960px)": {
+      height: "1.85rem",
+      width: "1.85rem",
+    },
+    "@media (max-width:640px)": {
+      height: "1.8rem",
+      width: "1.8rem",
+    },
+    "@media (max-width:480px)": {
+      height: "1.75rem",
+      width: "1.75rem",
+    },
+  },
+  accordionIcon: {
+    height: "1.2rem",
+    width: "1.2rem",
+    color: theme.palette.primary.main,
+  },
 }))
 
 // icons for toolbar
 export const SortIcon = ({ style, color, size }) => {
   const classes = useStyles()
   return (
-    <BiSort
+    <FiSliders
       className={classes.toolbarIcon}
       style={style}
       color={color}
@@ -103,7 +130,7 @@ export const SortIcon = ({ style, color, size }) => {
 export const FilterIcon = ({ style, color, size }) => {
   const classes = useStyles()
   return (
-    <BiFilterAlt
+    <FiFilter
       className={classes.toolbarIcon}
       style={style}
       color={color}
@@ -263,12 +290,12 @@ export const StarIconHalf = ({ style, color, size }) => {
   )
 }
 
-// toolbar icons
+// view setting icon (toolbar)
 export const GridIcon = ({ style, color, size }) => {
   const classes = useStyles()
   return (
     <BsGrid
-      className={classes.toolbarIcon}
+      className={classes.viewSettingIcon}
       style={style}
       color={color}
       size={size}
@@ -279,7 +306,20 @@ export const ListIcon = ({ style, color, size }) => {
   const classes = useStyles()
   return (
     <BsListUl
-      className={classes.toolbarIcon}
+      className={classes.viewSettingIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+
+// accordion
+export const ExpandMoreIcon = ({ style, color, size }) => {
+  const classes = useStyles()
+  return (
+    <FiChevronDown
+      className={classes.accordionIcon}
       style={style}
       color={color}
       size={size}

@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "4rem",
   },
   buttonContainer: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     borderRadius: "2.5px",
     boxShadow: theme.shadows[5],
   },
@@ -62,7 +62,7 @@ const CallToAction = () => {
           to="/register"
           classes={{ root: classes.button }}
         >
-          <Typography variant="body2">Sign up for free</Typography>
+          <Typography variant="body2">Sign up now</Typography>
           <RightArrowIcon />
         </Button>
       </Grid>

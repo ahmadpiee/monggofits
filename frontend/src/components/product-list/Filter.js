@@ -15,13 +15,6 @@ const useStyles = makeStyles(theme => ({
   mainContainer: {
     padding: "1rem 0",
   },
-  chipRoot: {
-    background: theme.palette.secondary.dark,
-  },
-  chipLabel: {
-    ...theme.typography.body1,
-    color: theme.palette.common.white,
-  },
   checkbox: {
     color: theme.palette.common.white,
   },
@@ -52,13 +45,7 @@ const Filter = ({ setOption, filterOptions }) => {
               <Grid item key={option}>
                 <Grid container direction="column">
                   <Grid item>
-                    <Chip
-                      label={option}
-                      classes={{
-                        root: classes.chipRoot,
-                        label: classes.chipLabel,
-                      }}
-                    />
+                    <Chip label={option} />
                   </Grid>
                   <Grid item>
                     <FormControl>

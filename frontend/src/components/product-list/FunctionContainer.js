@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Grid, makeStyles, IconButton } from "@material-ui/core"
 import { SortIcon, FilterIcon } from "@components/Icons"
 import Sort from "./Sort"
@@ -6,7 +6,7 @@ import Filter from "./Filter"
 
 const useStyles = makeStyles(theme => ({
   functionContainer: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     minHeight: "6rem",
     height: "auto",
     borderRadius: ({ option }) => (option !== null ? "10px" : "10px 10px 0 0"),

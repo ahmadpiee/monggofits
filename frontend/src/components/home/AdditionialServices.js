@@ -21,7 +21,6 @@ const AdditionialServices = () => {
     "Custom Your Own Design?": [
       { label: "Ask our production team", href: "https://wa.me/6281296089640" },
     ],
-    "Most Questions": [{ label: "FAQ", href: "/faq" }],
   }
   const classes = useStyles()
   return (

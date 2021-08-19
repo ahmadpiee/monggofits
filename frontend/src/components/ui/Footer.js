@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, WhatsappIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.dark,
     padding: "2rem",
     paddingBottom: "5px",
   },
@@ -64,14 +64,13 @@ const Footer = () => {
   ]
 
   const routes = {
-    Informations: [
-      { label: "About Us", link: "/about-us" },
-      { label: "Privacy Policy", link: "/privacy-policy" },
-      { label: "Terms & Conditions", link: "/terms-conditions" },
-    ],
     "Customer Service": [
       { label: "0813-1853-4781", href: "tel:(+62)81318534781" },
       { label: "monggo.idn@gmail.com", href: "mailto:monggo.idn@gmail.com" },
+    ],
+    Informations: [
+      { label: "Terms & Conditions", link: "/terms-and-conditions" },
+      { label: "FAQ", link: "/faqs" },
     ],
   }
 
@@ -136,7 +135,7 @@ const Footer = () => {
       {/* copyright */}
       <Grid item>
         <Typography variant="h6" classes={{ root: classes.copyright }}>
-          &copy;MONGGOFITS
+          &copy;2021 MONGGOFITS
         </Typography>
       </Grid>
     </footer>

@@ -5,7 +5,7 @@ import DescriptionContainer from "./DescriptionContainer"
 
 const useStyles = makeStyles(theme => ({
   toolBarContainer: {
-    border: `5px solid ${theme.palette.secondary.main}`,
+    border: `5px solid ${theme.palette.primary.main}`,
     borderRadius: 20,
     width: "95%",
     height: "auto",

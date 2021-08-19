@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "term_and_conditions",
+  "info": {
+    "name": "term and condition"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true,
+      "unique": true
+    }
+  }
+}

@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   slide: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     height: "20rem",
     width: "24.5rem",
     transition: "transform 0.25s ease",
@@ -95,9 +95,9 @@ const useStyles = makeStyles(theme => ({
     margin: "5rem 0",
   },
   chipContainer: {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: theme.palette.common.white,
     ...theme.typography.body1,
-    color: theme.palette.common.white,
+    color: theme.palette.common.solidBlack,
     fontSize: "1rem",
     padding: "0.5rem 0",
   },

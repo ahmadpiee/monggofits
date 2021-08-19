@@ -19,7 +19,7 @@ import { MenuBarIcon, UserIcon, CartIcon, SearchIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   coloredIndicator: {
-    background: "#cf2f2f",
+    background: theme.palette.common.white,
     alignSelf: "flex-end",
   },
   logoContainer: {
@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: "auto",
   },
   tab: {
-    ...theme.typography.body1,
+    ...theme.typography.h6,
+    fontSize: theme.typography.pxToRem(14),
     fontWeight: 600,
   },
   drawer: {

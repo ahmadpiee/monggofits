@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
   },
   descriptionContainer: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
     minHeight: "15rem",
     width: "60rem",
     borderRadius: 20,
@@ -34,19 +34,19 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "3rem",
   },
   button: {
-    border: `2px solid ${theme.palette.secondary.main}`,
+    border: `2px solid ${theme.palette.primary.main}`,
     borderRadius: 30,
     padding: "0.5rem 1rem",
-    borderRightColor: `${theme.palette.primary.main} !important`,
+    borderRightColor: `${theme.palette.primary.dark} !important`,
     background: theme.palette.common.white,
     "&:hover": {
       background: theme.palette.common.lightGray,
     },
   },
   selected: {
-    background: theme.palette.secondary.main,
+    background: theme.palette.primary.main,
     "&:hover": {
-      background: theme.palette.secondary.dark,
+      background: theme.palette.primary.light,
     },
   },
 }))

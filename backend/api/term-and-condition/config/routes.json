@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/term-and-conditions",
+      "handler": "term-and-condition.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/term-and-conditions/count",
+      "handler": "term-and-condition.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/term-and-conditions/:id",
+      "handler": "term-and-condition.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/term-and-conditions",
+      "handler": "term-and-condition.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/term-and-conditions/:id",
+      "handler": "term-and-condition.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/term-and-conditions/:id",
+      "handler": "term-and-condition.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
