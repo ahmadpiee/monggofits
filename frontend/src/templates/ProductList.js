@@ -1,11 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import Layout from "@components/ui/Layout"
 import DynamicToolbar from "@components/product-list/DynamicToolbar"
 import ListOfProducts from "@components/product-list/ListOfProducts"
-
-const useStyles = makeStyles(theme => ({}))
 
 const ProductList = ({
   pageContext: { filterOptions, name, description },
@@ -13,7 +11,6 @@ const ProductList = ({
     allStrapiProduct: { edges: products },
   },
 }) => {
-  const classes = useStyles()
   return (
     <Layout>
       <Grid container direction="column" alignItems="center">

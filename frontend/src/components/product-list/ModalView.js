@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Grid,
   Typography,
@@ -12,6 +12,8 @@ import Rating from "@components/home/Rating"
 import { GoDetailsIcon } from "@components/Icons"
 import Formatter from "@components/Formatter"
 import Sizes from "./Sizes"
+import ColorSwitch from "./ColorSwitch"
+import QtyButton from "./QtyButton"
 
 const useStyles = makeStyles(theme => ({
   selectedFrame: {
@@ -31,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     height: "13rem",
     background: theme.palette.secondary.main,
     marginTop: "2rem",
-    padding: "1.5rem",
+    padding: "0.75rem 2rem",
   },
   infoContainer: {
     height: "100%",
@@ -40,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.common.white,
   },
   button: {
-    padding: "0",
+    padding: 0,
   },
   chipContainer: {
     display: "flex",
@@ -53,9 +55,16 @@ const useStyles = makeStyles(theme => ({
 
 const ModalView = ({ open, setOpen, url, name, price, product }) => {
   const classes = useStyles()
+  const [selectedSize, setSelectedSize] = useState(null)
+  const [selectedColor, setSelectedColor] = useState(null)
 
   var sizes = []
-  product.node.variants.map(variant => sizes.push(variant.size))
+  var colors = []
+
+  product.node.variants.map(variant => {
+    sizes.push(variant.size)
+    colors.push(variant.color)
+  })
 
   return (
     <Dialog
@@ -116,9 +125,17 @@ const ModalView = ({ open, setOpen, url, name, price, product }) => {
 
             <Grid item>
               <Grid container direction="column">
-                <Grid item>
-                  <Sizes sizes={sizes} />
-                </Grid>
+                <Sizes
+                  sizes={sizes}
+                  selectedSize={selectedSize}
+                  setSelectedSize={setSelectedSize}
+                />
+                <ColorSwitch
+                  colors={colors}
+                  selectedColor={selectedColor}
+                  setSelectedColor={setSelectedColor}
+                />
+                <QtyButton />
               </Grid>
             </Grid>
           </Grid>

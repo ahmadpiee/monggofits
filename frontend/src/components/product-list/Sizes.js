@@ -1,5 +1,6 @@
 import React from "react"
 import { Grid, Typography, makeStyles, Button } from "@material-ui/core"
+import clsx from "clsx"
 
 const useStyles = makeStyles(theme => ({
   size: {
@@ -12,39 +13,40 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "50%",
     minWidth: 0,
   },
+  selected: {
+    background: theme.palette.primary.dark,
+    "&:hover": {
+      background: theme.palette.primary.dark,
+    },
+  },
 }))
 
-const Sizes = ({ sizes }) => {
+const Sizes = ({ sizes, selectedSize, setSelectedSize }) => {
   const classes = useStyles()
 
-  const possibleSizes = ["S", "M", "L", "XL", "XXL"]
-  const possiblePantsSize = ["28", "30", "32", "34", "36"]
-  const possibleShoesSize = [
-    "38",
-    "39",
-    "40",
-    "40.5",
-    "41",
-    "42",
-    "43",
-    "44.5",
-    "45",
-  ]
-  var actualSizes = []
+  // const possibleSizes = ["S", "M", "L", "XL", "XXL"]
+  // const possiblePantsSize = ["28", "30", "32", "34", "36"]
 
-  if (possibleSizes.every(size => sizes.includes(size))) {
-    actualSizes = possibleSizes
-  } else if (possiblePantsSize.every(size => sizes.includes(size))) {
-    actualSizes = possiblePantsSize
-  } else if (possibleShoesSize.every(size => sizes.includes(size))) {
-    actualSizes = possibleShoesSize
-  }
+  // var actualSizes = []
+
+  // if (possibleSizes.every(size => sizes.includes(size))) {
+  //   actualSizes = possibleSizes
+  // } else if (possiblePantsSize.every(size => sizes.includes(size))) {
+  //   actualSizes = possiblePantsSize
+  // }
 
   return (
     <Grid item container justifyContent="space-between">
-      {actualSizes.map(size => (
+      {sizes.sort().map(size => (
         <Grid item key={size}>
-          <Button classes={{ root: classes.button }}>
+          <Button
+            onClick={() => setSelectedSize(size)}
+            classes={{
+              root: clsx(classes.button, {
+                [classes.selected]: selectedSize === size,
+              }),
+            }}
+          >
             <Typography variant="body1" classes={{ root: classes.size }}>
               {size}
             </Typography>

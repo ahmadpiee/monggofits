@@ -232,11 +232,11 @@ export const UserIcon = ({ style, color, size }) => {
     />
   )
 }
-export const CartIcon = ({ style, color, size }) => {
+export const CartIcon = ({ style, color, size, className }) => {
   const classes = useStyles()
   return (
     <AiOutlineShopping
-      className={classes.headerIcons}
+      className={className || classes.headerIcons}
       style={style}
       color={color}
       size={size}
