@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   Grid,
   Typography,
@@ -49,20 +49,25 @@ const useStyles = makeStyles(theme => ({
   chiproot: {
     transform: "scale(1.25)",
   },
+  qtyButton: {
+    marginTop: "1.25rem",
+  },
 }))
 
-const ModalView = ({ open, setOpen, url, name, price, product }) => {
+const ModalView = ({
+  open,
+  setOpen,
+  url,
+  name,
+  price,
+  sizes,
+  colors,
+  selectedSize,
+  setSelectedSize,
+  selectedColor,
+  setSelectedColor,
+}) => {
   const classes = useStyles()
-  const [selectedSize, setSelectedSize] = useState(null)
-  const [selectedColor, setSelectedColor] = useState(null)
-
-  var sizes = []
-  var colors = []
-
-  product.node.variants.map(variant => {
-    sizes.push(variant.size)
-    colors.push(variant.color)
-  })
 
   return (
     <Dialog
@@ -133,7 +138,7 @@ const ModalView = ({ open, setOpen, url, name, price, product }) => {
                   selectedColor={selectedColor}
                   setSelectedColor={setSelectedColor}
                 />
-                <QtyButton />
+                <QtyButton className={classes.qtyButton} />
               </Grid>
             </Grid>
           </Grid>

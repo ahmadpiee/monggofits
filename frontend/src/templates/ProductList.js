@@ -4,6 +4,8 @@ import { Grid } from "@material-ui/core"
 import { Layout } from "@components/ui"
 import { DynamicToolbar, ListOfProducts } from "@components/product-list"
 
+// pageContext data all setup inside gatsby-browser.js
+
 const ProductList = ({
   pageContext: { filterOptions, name, description },
   data: {

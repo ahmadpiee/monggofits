@@ -27,7 +27,6 @@ export default function Validate(values) {
 
   Object.keys(values).map(field => {
     valid[field] = validators[field](values[field])
+    return valid
   })
-
-  return valid
 }

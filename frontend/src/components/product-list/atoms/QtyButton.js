@@ -12,7 +12,6 @@ import { CartIcon } from "@components/Icons"
 const useStyles = makeStyles(theme => ({
   mainGroup: {
     height: "3rem",
-    marginTop: "2rem",
   },
   qtyText: {
     color: theme.palette.common.white,
@@ -42,12 +41,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const QtyButton = () => {
+const QtyButton = ({ className }) => {
   const classes = useStyles()
   const [qty, setQty] = useState(1)
 
   return (
-    <Grid item>
+    <Grid item className={className}>
       <ButtonGroup classes={{ root: classes.mainGroup }}>
         <Button disabled classes={{ root: classes.endButtons }}>
           <Typography variant="h6" classes={{ root: classes.qtyText }}>

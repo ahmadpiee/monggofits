@@ -1,8 +1,9 @@
-import React from "react"
+// the consumer is => ProductList from "@templates/ProductList"
+// pay attention to the hooks below
+
+import React, { useState } from "react"
 import { Grid, makeStyles } from "@material-ui/core"
 import { ProductFrameList, ProductFrameGrid } from "./molecules"
-
-// consumer > ProductList from "@templates/ProductList"
 
 const useStyles = makeStyles(theme => ({
   productContainer: {
@@ -22,7 +23,31 @@ const ListOfProducts = ({ products, layout }) => {
   const classes = useStyles({ layout })
 
   const FrameControl = ({ Frame, product, variant }) => {
-    return <Frame variant={variant} product={product} />
+    // this hooks consumed by the child level components (ProductFrameGrid, ProductFrameList, QuickView)
+    const [selectedSize, setSelectedSize] = useState(null)
+    const [selectedColor, setSelectedColor] = useState(null)
+
+    var sizes = []
+    var colors = []
+
+    product.node.variants.map(variant => {
+      sizes.push(variant.size)
+      colors.push(variant.color)
+      return sizes && colors
+    })
+
+    return (
+      <Frame
+        sizes={sizes}
+        colors={colors}
+        selectedSize={selectedSize}
+        selectedColor={selectedColor}
+        setSelectedSize={setSelectedSize}
+        setSelectedColor={setSelectedColor}
+        variant={variant}
+        product={product}
+      />
+    )
   }
 
   return (

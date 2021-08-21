@@ -36,7 +36,7 @@ const Sizes = ({ sizes, selectedSize, setSelectedSize }) => {
   // }
 
   return (
-    <Grid item container justifyContent="space-between">
+    <Grid item container justifyContent="flex-start">
       {sizes.sort().map(size => (
         <Grid item key={size}>
           <Button

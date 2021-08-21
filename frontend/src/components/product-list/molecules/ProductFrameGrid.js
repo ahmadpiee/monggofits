@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 import theme from "@components/ui/theme"
-import { ModalView } from "."
+import { QuickView } from "."
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -30,7 +30,16 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ProductFrameGrid = ({ product, variant }) => {
+const ProductFrameGrid = ({
+  product,
+  variant,
+  sizes,
+  colors,
+  selectedSize,
+  setSelectedSize,
+  selectedColor,
+  setSelectedColor,
+}) => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
 
@@ -61,13 +70,19 @@ const ProductFrameGrid = ({ product, variant }) => {
           </Typography>
         </Grid>
       </Grid>
-      <ModalView
+      <QuickView
         open={open}
         setOpen={setOpen}
         url={imageUrl}
         name={productName}
         price={variant.price}
         product={product}
+        colors={colors}
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+        sizes={sizes}
+        selectedSize={selectedSize}
+        setSelectedSize={setSelectedSize}
       />
     </Grid>
   )

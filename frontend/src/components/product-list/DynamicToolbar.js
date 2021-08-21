@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Grid, makeStyles } from "@material-ui/core"
 import { DescriptionContainer, FunctionContainer } from "./atoms"
 
-// consumer > ProductList from "@templates/ProductList"
+// The consumer is => ProductList from "@templates/ProductList"
 
 const useStyles = makeStyles(theme => ({
   toolBarContainer: {

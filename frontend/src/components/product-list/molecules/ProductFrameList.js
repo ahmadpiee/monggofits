@@ -7,32 +7,44 @@ import { Sizes, ColorSwitch, QtyButton } from "../atoms"
 const useStyles = makeStyles(theme => ({
   mainContainer: {},
   frameContainer: {
-    height: "25rem",
+    height: "28rem",
   },
   productImage: {
     height: "15rem",
     width: "15rem",
   },
   infoContainer: {
-    background: theme.palette.primary.main,
+    background: theme.palette.secondary.main,
     height: "100%",
     width: "100%",
     borderRadius: 20,
-    padding: "1.5rem 1rem",
+    padding: "1rem",
   },
   text: {
     color: theme.palette.common.white,
   },
+  chip: {
+    margin: "1rem 0",
+  },
 }))
 
-const ProductFrameList = ({ product, variant }) => {
+const ProductFrameList = ({
+  product,
+  variant,
+  sizes,
+  colors,
+  selectedSize,
+  setSelectedSize,
+  selectedColor,
+  setSelectedColor,
+}) => {
   const classes = useStyles()
 
   return (
     <Grid item container classes={{ root: classes.mainContainer }}>
       <Grid
         item
-        xs={10}
+        xs={9}
         container
         alignItems="center"
         justifyContent="space-evenly"
@@ -51,30 +63,48 @@ const ProductFrameList = ({ product, variant }) => {
 
       <Grid
         item
-        xs={2}
+        xs={3}
         container
         direction="column"
+        justifyContent="space-between"
         classes={{ root: classes.infoContainer }}
       >
-        <Grid item>
-          <Typography variant="h6" classes={{ root: classes.text }}>
-            {product.node.name.split(" ")[0]}
-          </Typography>
+        <Grid item container direction="column">
+          <Grid item>
+            <Typography variant="h5" classes={{ root: classes.text }}>
+              {product.node.name.split(" ")[0]}
+            </Typography>
+          </Grid>
+
+          <Grid item>
+            <Rating number={4.5} />
+          </Grid>
+
+          <Grid item classes={{ root: classes.chip }}>
+            <Chip label={`IDR ${Formatter.format(variant.price)} `} />
+          </Grid>
+
+          <Grid item>
+            <Typography variant="body1" classes={{ root: classes.text }}>
+              12 Count in stock
+            </Typography>
+          </Grid>
         </Grid>
 
-        <Grid item>
-          <Rating number={4.5} />
+        <Grid item container direction="column">
+          <Sizes
+            sizes={sizes}
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
+          <ColorSwitch
+            colors={colors}
+            selectedColor={selectedColor}
+            setSelectedColor={setSelectedColor}
+          />
         </Grid>
 
-        <Grid item>
-          <Chip label={`IDR ${Formatter.format(variant.price)} `} />
-        </Grid>
-
-        <Grid item>
-          <Typography variant="body1" classes={{ root: classes.text }}>
-            12 Count in stock
-          </Typography>
-        </Grid>
+        <QtyButton />
       </Grid>
     </Grid>
   )

@@ -4,7 +4,7 @@ import clsx from "clsx"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    marginTop: "0.5rem",
+    marginTop: "5px",
     "&:not(:first-child)": {
       marginLeft: "-0.55rem",
     },
@@ -21,13 +21,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ColorSwitch = ({ colors, selectedColor, setSelectedColor, products }) => {
+const ColorSwitch = ({ colors, selectedColor, setSelectedColor }) => {
   const classes = useStyles()
 
   return (
     <Grid item container>
       {colors.sort().map(color => (
-        <Grid item classes={{ root: classes.mainContainer }}>
+        <Grid key={color} item classes={{ root: classes.mainContainer }}>
           <Button
             onClick={() => setSelectedColor(color)}
             style={{ background: color }}

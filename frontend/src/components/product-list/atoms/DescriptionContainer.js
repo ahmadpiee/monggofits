@@ -72,7 +72,7 @@ const DescriptionContainer = ({ name, description, layout, setLayout }) => {
         </Typography>
         <Typography variant="body2">{description}</Typography>
       </Grid>
-      {/*  */}
+
       <Grid item classes={{ root: classes.buttonContainer }}>
         <ButtonGroup>
           <Button

@@ -12,7 +12,7 @@ import Carousel from "react-spring-3d-carousel"
 import clsx from "clsx"
 import promoAdornment from "@images/promoAdornment.png"
 import { GoDetailsIcon } from "@components/Icons"
-import theme from "@components/ui/theme"
+import { theme } from "@components/ui"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {

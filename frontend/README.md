@@ -12,7 +12,7 @@ Monggofits is an E-Commerce Progresive Web Application
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Preparations**
 
     Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
 
