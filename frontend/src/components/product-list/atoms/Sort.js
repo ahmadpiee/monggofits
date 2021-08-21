@@ -19,7 +19,7 @@ const Sort = ({ setOption }) => {
           <SortIcon />
         </IconButton>
       </Grid>
-      {/* */}
+
       <Grid item xs>
         <Grid container justifyContent="space-evenly">
           {sortOptions.map(option => (
@@ -29,7 +29,7 @@ const Sort = ({ setOption }) => {
           ))}
         </Grid>
       </Grid>
-      {/*  */}
+
       <Grid item>
         <IconButton onClick={() => setOption(null)}>
           <CloseIcon />

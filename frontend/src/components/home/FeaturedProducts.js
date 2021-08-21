@@ -11,9 +11,9 @@ import {
   useMediaQuery,
 } from "@material-ui/core"
 import { GoDetailsIcon } from "@components/Icons"
-import Rating from "./Rating"
+import { theme } from "@components/ui"
 import Formatter from "@components/Formatter"
-import theme from "@components/ui/theme"
+import Rating from "@components/Rating"
 
 const useStyles = makeStyles(theme => ({
   background: {

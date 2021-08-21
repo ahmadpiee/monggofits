@@ -8,12 +8,10 @@ import {
   Button,
   Chip,
 } from "@material-ui/core"
-import Rating from "@components/home/Rating"
+import Rating from "@components/Rating"
 import { GoDetailsIcon } from "@components/Icons"
 import Formatter from "@components/Formatter"
-import Sizes from "./Sizes"
-import ColorSwitch from "./ColorSwitch"
-import QtyButton from "./QtyButton"
+import { QtyButton, Sizes, ColorSwitch } from "../atoms"
 
 const useStyles = makeStyles(theme => ({
   selectedFrame: {

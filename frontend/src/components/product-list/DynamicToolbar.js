@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Grid, makeStyles } from "@material-ui/core"
-import FunctionContainer from "./FunctionContainer"
-import DescriptionContainer from "./DescriptionContainer"
+import { DescriptionContainer, FunctionContainer } from "./atoms"
+
+// consumer > ProductList from "@templates/ProductList"
 
 const useStyles = makeStyles(theme => ({
   toolBarContainer: {
@@ -13,7 +14,13 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const DynamicToolbar = ({ filterOptions, name, description }) => {
+const DynamicToolbar = ({
+  filterOptions,
+  name,
+  description,
+  layout,
+  setLayout,
+}) => {
   const classes = useStyles()
   const [option, setOption] = useState(null)
 
@@ -30,7 +37,12 @@ const DynamicToolbar = ({ filterOptions, name, description }) => {
         filterOptions={filterOptions}
       />
       {option === null && (
-        <DescriptionContainer name={name} description={description} />
+        <DescriptionContainer
+          layout={layout}
+          setLayout={setLayout}
+          name={name}
+          description={description}
+        />
       )}
     </Grid>
   )

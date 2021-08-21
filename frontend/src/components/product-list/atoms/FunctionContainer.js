@@ -1,8 +1,7 @@
 import React from "react"
 import { Grid, makeStyles, IconButton } from "@material-ui/core"
 import { SortIcon, FilterIcon } from "@components/Icons"
-import Sort from "./Sort"
-import Filter from "./Filter"
+import { Sort, Filter } from "."
 
 const useStyles = makeStyles(theme => ({
   functionContainer: {

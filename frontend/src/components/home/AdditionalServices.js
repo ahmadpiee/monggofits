@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   link: {},
 }))
 
-const AdditionialServices = () => {
+const AdditionalServices = () => {
   const routes = {
     "Custom Your Own Design?": [
       { label: "Ask our production team", href: "https://wa.me/6281296089640" },
@@ -59,4 +59,4 @@ const AdditionialServices = () => {
   )
 }
 
-export default AdditionialServices
+export default AdditionalServices

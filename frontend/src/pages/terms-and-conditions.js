@@ -7,11 +7,10 @@ import {
   Typography,
   Grid,
 } from "@material-ui/core"
-
-import Layout from "@components/ui/Layout"
-import { ExpandMoreIcon } from "@components/Icons"
-import { useStaticQuery, graphql } from "gatsby"
 import ReactMarkdown from "react-markdown"
+import { useStaticQuery, graphql } from "gatsby"
+import { Layout } from "@components/ui"
+import { ExpandMoreIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {

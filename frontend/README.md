@@ -1,16 +1,14 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://www.monggofits.com">
+    <img alt="Monggofits" src="https://res.cloudinary.com/monggofits/image/upload/v1629521404/logo_mpcoqv.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Monggofits E-Commerce PWA
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
-
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+Monggofits is an E-Commerce Progresive Web Application
 
 ## 🚀 Quick start
 

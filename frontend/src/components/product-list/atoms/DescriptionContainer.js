@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import clsx from "clsx"
 import {
   Grid,
@@ -51,10 +51,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const DescriptionContainer = ({ name, description }) => {
-  const [layout, setLayout] = useState("grid")
-
+const DescriptionContainer = ({ name, description, layout, setLayout }) => {
   const classes = useStyles()
+
   return (
     <Grid
       item

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 import theme from "@components/ui/theme"
-import ModalView from "./ModalView"
+import { ModalView } from "."
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
