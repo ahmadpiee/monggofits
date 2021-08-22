@@ -12,15 +12,16 @@ import Rating from "@components/Rating"
 import { GoDetailsIcon } from "@components/Icons"
 import Formatter from "@components/Formatter"
 import { QtyButton, Sizes, ColorSwitch } from "../atoms"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(theme => ({
+  mainContainer: {
+    maxWidth: "100%",
+  },
   selectedFrame: {
     height: "60rem",
     width: "70rem",
     padding: "0 !important",
-  },
-  modalView: {
-    maxWidth: "100%",
   },
   image: {
     height: "40rem",
@@ -54,10 +55,10 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ModalView = ({
+const QuickView = ({
   open,
   setOpen,
-  url,
+  image,
   name,
   price,
   sizes,
@@ -71,14 +72,19 @@ const ModalView = ({
 
   return (
     <Dialog
-      classes={{ paper: classes.modalView }}
+      classes={{ paper: classes.mainContainer }}
       open={open}
       onClose={() => setOpen(false)}
     >
       <DialogContent classes={{ root: classes.selectedFrame }}>
         <Grid container direction="column" alignItems="center">
           <Grid item>
-            <img src={url} alt={name} className={classes.image} />
+            <GatsbyImage
+              image={image}
+              alt={name}
+              className={classes.image}
+              objectFit="contain"
+            />
           </Grid>
 
           <Grid
@@ -148,4 +154,4 @@ const ModalView = ({
   )
 }
 
-export default ModalView
+export default QuickView

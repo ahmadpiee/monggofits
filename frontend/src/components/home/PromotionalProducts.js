@@ -13,6 +13,7 @@ import clsx from "clsx"
 import promoAdornment from "@images/promoAdornment.png"
 import { GoDetailsIcon } from "@components/Icons"
 import { theme } from "@components/ui"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -93,9 +94,16 @@ const PromotionalProducts = () => {
             name
             strapiId
             description
+            category {
+              name
+            }
             variants {
               images {
-                url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
               }
             }
           }
@@ -106,8 +114,10 @@ const PromotionalProducts = () => {
 
   var slides = []
 
-  data.allStrapiProduct.edges.map(({ node }, i) =>
-    slides.push({
+  data.allStrapiProduct.edges.map(({ node }, i) => {
+    const image = getImage(node.variants[0].images[0].localFile)
+
+    return slides.push({
       key: i,
       content: (
         <Grid container direction="column" alignItems="center">
@@ -121,10 +131,11 @@ const PromotionalProducts = () => {
                 }),
               }}
             >
-              <img
-                src={node.variants[0].images[0].url}
+              <GatsbyImage
+                image={image}
                 alt={`ggwp-${i}`}
                 className={classes.carouselImage}
+                objectFit="contain"
               />
             </IconButton>
           </Grid>
@@ -139,7 +150,7 @@ const PromotionalProducts = () => {
       ),
       description: node.description,
     })
-  )
+  })
 
   return (
     <Grid

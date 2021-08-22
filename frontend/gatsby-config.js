@@ -25,7 +25,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `${process.env.GATSBY_STRAPI_URL}`,
-        queryLimit: 10000, // Defaults to 100
+        queryLimit: 5000, // Defaults to 100
         collectionTypes: [
           `product`,
           `category`,
@@ -44,7 +44,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: "blurred",
+          breakpoints: [300, 600, 960, 1280, 1920],
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

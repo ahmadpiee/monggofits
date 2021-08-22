@@ -14,6 +14,7 @@ import { GoDetailsIcon } from "@components/Icons"
 import { theme } from "@components/ui"
 import Formatter from "@components/Formatter"
 import Rating from "@components/Rating"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(theme => ({
   background: {
@@ -127,10 +128,17 @@ const FeaturedProducts = () => {
           node {
             name
             strapiId
+            category {
+              name
+            }
             variants {
               price
               images {
-                url
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
               }
             }
           }
@@ -155,6 +163,7 @@ const FeaturedProducts = () => {
         </Typography>
       </Grid>
       {data.allStrapiProduct.edges.map(({ node }, i) => {
+        const image = getImage(node.variants[0].images[0].localFile)
         const alignment = matchesMD
           ? "center"
           : i === 0 || i === 3
@@ -179,10 +188,11 @@ const FeaturedProducts = () => {
               }
             >
               <div>
-                <img
-                  src={node.variants[0].images[0].url}
+                <GatsbyImage
+                  image={image}
                   alt={node.name}
                   className={classes.featuredImage}
+                  objectFit="contain"
                 />
                 <Typography
                   variant="body1"

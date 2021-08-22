@@ -14,7 +14,7 @@ import {
   FaStarHalfAlt,
   FaStar,
 } from "react-icons/fa"
-import { FiSliders, FiFilter, FiChevronDown } from "react-icons/fi"
+import { FiSliders, FiFilter, FiChevronDown, FiChevronUp } from "react-icons/fi"
 import { IoMdCloseCircle } from "react-icons/io"
 import { IoSearchOutline } from "react-icons/io5"
 
@@ -112,6 +112,11 @@ const useStyles = makeStyles(theme => ({
     height: "1.2rem",
     width: "1.2rem",
     color: theme.palette.primary.main,
+  },
+  chevronUp: {
+    height: "2rem",
+    width: "2rem",
+    color: theme.palette.common.white,
   },
 }))
 
@@ -320,6 +325,19 @@ export const ExpandMoreIcon = ({ style, color, size }) => {
   return (
     <FiChevronDown
       className={classes.accordionIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+
+// Chevron Up
+export const ChevronUp = ({ style, color, size, className }) => {
+  const classes = useStyles()
+  return (
+    <FiChevronUp
+      className={className || classes.chevronUp}
       style={style}
       color={color}
       size={size}

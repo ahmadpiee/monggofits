@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 import theme from "@components/ui/theme"
 import { QuickView } from "."
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    boxShadow: theme.shadows[5],
+    cursor: "pointer",
   },
   frameContainer: {
     height: "25rem",
@@ -18,6 +19,10 @@ const useStyles = makeStyles(theme => ({
     alignSelf: "center",
     height: "20rem",
     width: "20rem",
+    "&:hover": {
+      transform: "scale(1.05)",
+      transition: "transform 1.25s cubic-bezier(0.25, 0.45, 0.45, 2.5)",
+    },
   },
   title: {
     background: theme.palette.primary.main,
@@ -43,7 +48,9 @@ const ProductFrameGrid = ({
   const classes = useStyles()
   const [open, setOpen] = useState(false)
 
-  const imageUrl = variant.images[0].url
+  const imageUrl = variant.images[0].localFile
+  const image = getImage(imageUrl)
+
   const productName = product.node.name.split(" ")[0]
 
   return (
@@ -55,8 +62,9 @@ const ProductFrameGrid = ({
         onClick={() => setOpen(true)}
       >
         <Grid item classes={{ root: classes.frameContainer }}>
-          <img
-            src={imageUrl}
+          <GatsbyImage
+            image={image}
+            objectFit="contain"
             alt={product.node.name}
             className={classes.image}
           />
@@ -73,7 +81,7 @@ const ProductFrameGrid = ({
       <QuickView
         open={open}
         setOpen={setOpen}
-        url={imageUrl}
+        image={image}
         name={productName}
         price={variant.price}
         product={product}

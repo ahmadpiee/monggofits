@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const ListOfProducts = ({ products, layout }) => {
+const ListOfProducts = ({ products, layout, page, productsPerPage }) => {
   const classes = useStyles({ layout })
 
   const FrameControl = ({ Frame, product, variant }) => {
@@ -29,7 +29,6 @@ const ListOfProducts = ({ products, layout }) => {
 
     var sizes = []
     var colors = []
-
     product.node.variants.map(variant => {
       sizes.push(variant.size)
       colors.push(variant.color)
@@ -50,18 +49,23 @@ const ListOfProducts = ({ products, layout }) => {
     )
   }
 
+  var content = []
+  products.map((product, i) =>
+    product.node.variants.map(variant => content.push({ product: i, variant }))
+  )
+
   return (
     <Grid item container classes={{ root: classes.productContainer }}>
-      {products.map(product =>
-        product.node.variants.map(variant => (
+      {content
+        .slice((page - 1) * productsPerPage, page * productsPerPage)
+        .map(item => (
           <FrameControl
             Frame={layout === "grid" ? ProductFrameGrid : ProductFrameList}
-            key={variant.id}
-            variant={variant}
-            product={product}
+            key={item.variant.id}
+            variant={item.variant}
+            product={products[item.product]}
           />
-        ))
-      )}
+        ))}
     </Grid>
   )
 }

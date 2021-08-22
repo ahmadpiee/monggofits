@@ -24,21 +24,10 @@ const useStyles = makeStyles(theme => ({
 const Sizes = ({ sizes, selectedSize, setSelectedSize }) => {
   const classes = useStyles()
 
-  // const possibleSizes = ["S", "M", "L", "XL", "XXL"]
-  // const possiblePantsSize = ["28", "30", "32", "34", "36"]
-
-  // var actualSizes = []
-
-  // if (possibleSizes.every(size => sizes.includes(size))) {
-  //   actualSizes = possibleSizes
-  // } else if (possiblePantsSize.every(size => sizes.includes(size))) {
-  //   actualSizes = possiblePantsSize
-  // }
-
   return (
     <Grid item container justifyContent="flex-start">
-      {sizes.sort().map(size => (
-        <Grid item key={size}>
+      {sizes.map((size, i) => (
+        <Grid item key={i}>
           <Button
             onClick={() => setSelectedSize(size)}
             classes={{

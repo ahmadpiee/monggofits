@@ -3,6 +3,7 @@ import { Grid, Typography, makeStyles, Chip } from "@material-ui/core"
 import Formatter from "@components/Formatter"
 import Rating from "@components/Rating"
 import { Sizes, ColorSwitch, QtyButton } from "../atoms"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {},
@@ -12,12 +13,15 @@ const useStyles = makeStyles(theme => ({
   productImage: {
     height: "15rem",
     width: "15rem",
+    "&:hover": {
+      transform: "scale(1.05)",
+      transition: "transform 1.25s cubic-bezier(0.25, 0.45, 0.45, 2.5)",
+    },
   },
   infoContainer: {
     background: theme.palette.secondary.main,
     height: "100%",
     width: "100%",
-    borderRadius: 20,
     padding: "1rem",
   },
   text: {
@@ -50,15 +54,18 @@ const ProductFrameList = ({
         justifyContent="space-evenly"
         classes={{ root: classes.frameContainer }}
       >
-        {variant.images.slice(0, 4).map(image => (
-          <Grid item key={image.url}>
-            <img
-              src={image.url}
-              className={classes.productImage}
-              alt={image.url}
-            />
-          </Grid>
-        ))}
+        {variant.images.slice(0, 4).map(image => {
+          const imageUrl = getImage(image.localFile)
+          return (
+            <Grid item key={imageUrl}>
+              <GatsbyImage
+                image={imageUrl}
+                className={classes.productImage}
+                alt="Product Picture"
+              />
+            </Grid>
+          )
+        })}
       </Grid>
 
       <Grid

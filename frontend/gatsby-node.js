@@ -31,6 +31,20 @@ exports.createPages = async ({ graphql, actions }) => {
             category {
               name
             }
+            variants {
+              id
+              color
+              size
+              style
+              price
+              images {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
           }
         }
       }
