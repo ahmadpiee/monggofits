@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     height: "13rem",
     background: theme.palette.secondary.main,
     marginTop: "2rem",
-    padding: "0.75rem 2rem",
+    padding: "0.75rem 1.5rem",
+    position: "relative",
   },
   infoContainer: {
     height: "100%",
@@ -52,6 +53,15 @@ const useStyles = makeStyles(theme => ({
   },
   qtyButton: {
     marginTop: "1.25rem",
+  },
+  infoItem: {
+    position: "absolute",
+    left: "1.5rem",
+    height: "calc(100% - 1rem)",
+  },
+  actionsItem: {
+    position: "absolute",
+    right: "1.5rem",
   },
 }))
 
@@ -90,10 +100,10 @@ const QuickView = ({
           <Grid
             item
             container
-            justifyContent="space-between"
+            justifyContent="center"
             classes={{ root: classes.toolbar }}
           >
-            <Grid item>
+            <Grid item classes={{ root: classes.infoItem }}>
               <Grid
                 container
                 direction="column"
@@ -132,7 +142,7 @@ const QuickView = ({
               />
             </Grid>
 
-            <Grid item>
+            <Grid item classes={{ root: classes.actionsItem }}>
               <Grid container direction="column">
                 <Sizes
                   sizes={sizes}

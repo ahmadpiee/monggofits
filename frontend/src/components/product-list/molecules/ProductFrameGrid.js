@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Grid, Typography, makeStyles } from "@material-ui/core"
+import clsx from "clsx"
 import theme from "@components/ui/theme"
 import { QuickView } from "."
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -33,7 +34,16 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     padding: "1rem",
   },
+  invisibility: {
+    visibility: "hidden",
+  },
 }))
+
+export const colorIndex = (product, color) => {
+  return product.node.variants.indexOf(
+    product.node.variants.filter(variant => variant.color === color)[0]
+  )
+}
 
 const ProductFrameGrid = ({
   product,
@@ -48,13 +58,25 @@ const ProductFrameGrid = ({
   const classes = useStyles()
   const [open, setOpen] = useState(false)
 
-  const imageUrl = variant.images[0].localFile
+  const imageIndex = colorIndex(product, selectedColor)
+
+  const imageUrl =
+    imageIndex !== -1
+      ? product.node.variants[imageIndex].images[0].localFile
+      : variant.images[0].localFile
   const image = getImage(imageUrl)
 
   const productName = product.node.name.split(" ")[0]
 
   return (
-    <Grid item>
+    <Grid
+      item
+      classes={{
+        root: clsx({
+          [classes.invisibility]: open === true,
+        }),
+      }}
+    >
       <Grid
         container
         direction="column"

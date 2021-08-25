@@ -4,6 +4,8 @@ import Formatter from "@components/Formatter"
 import Rating from "@components/Rating"
 import { Sizes, ColorSwitch, QtyButton } from "../atoms"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { colorIndex } from "./ProductFrameGrid"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {},
@@ -43,6 +45,12 @@ const ProductFrameList = ({
   setSelectedColor,
 }) => {
   const classes = useStyles()
+  const imageIndex = colorIndex(product, selectedColor)
+
+  const images =
+    imageIndex !== -1
+      ? product.node.variants[imageIndex].images
+      : variant.images
 
   return (
     <Grid item container classes={{ root: classes.mainContainer }}>
@@ -54,11 +62,19 @@ const ProductFrameList = ({
         justifyContent="space-evenly"
         classes={{ root: classes.frameContainer }}
       >
-        {variant.images.slice(0, 4).map(image => {
+        {images.slice(0, 4).map(image => {
           const imageUrl = getImage(image.localFile)
           return (
-            <Grid item key={imageUrl}>
+            <Grid
+              item
+              key={imageUrl}
+              component={Link}
+              to={`/${product.node.category.name.toLowerCase()}/${
+                product.node.name.split(" ")[0]
+              }`}
+            >
               <GatsbyImage
+                objectFit="contain"
                 image={imageUrl}
                 className={classes.productImage}
                 alt="Product Picture"

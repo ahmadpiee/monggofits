@@ -80,6 +80,9 @@ export const query = graphql`
         node {
           strapiId
           name
+          category {
+            name
+          }
           variants {
             id
             color
@@ -87,6 +90,7 @@ export const query = graphql`
             size
             style
             images {
+              url
               localFile {
                 childImageSharp {
                   gatsbyImageData
