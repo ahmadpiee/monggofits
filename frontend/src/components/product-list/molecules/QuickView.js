@@ -6,13 +6,21 @@ import {
   Dialog,
   DialogContent,
   Button,
+  IconButton,
   Chip,
 } from "@material-ui/core"
 import Rating from "@components/Rating"
-import { GoDetailsIcon } from "@components/Icons"
+import {
+  GoDetailsIcon,
+  ZoomOutIcon,
+  ZoomInIcon,
+  ResetIcon,
+} from "@components/Icons"
 import Formatter from "@components/Formatter"
 import { QtyButton, Sizes, ColorSwitch } from "../atoms"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -63,6 +71,9 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     right: "1.5rem",
   },
+  zoomController: {
+    padding: "0.5rem",
+  },
 }))
 
 const QuickView = ({
@@ -77,6 +88,7 @@ const QuickView = ({
   setSelectedSize,
   selectedColor,
   setSelectedColor,
+  product,
 }) => {
   const classes = useStyles()
 
@@ -89,12 +101,36 @@ const QuickView = ({
       <DialogContent classes={{ root: classes.selectedFrame }}>
         <Grid container direction="column" alignItems="center">
           <Grid item>
-            <GatsbyImage
-              image={image}
-              alt={name}
-              className={classes.image}
-              objectFit="contain"
-            />
+            <TransformWrapper>
+              {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+                <>
+                  <TransformComponent>
+                    <GatsbyImage
+                      image={image}
+                      alt={name}
+                      className={classes.image}
+                      objectFit="contain"
+                    />
+                  </TransformComponent>
+                  <Grid
+                    item
+                    container
+                    justifyContent="center"
+                    classes={{ root: classes.zoomController }}
+                  >
+                    <IconButton onClick={() => zoomIn()}>
+                      <ZoomInIcon />
+                    </IconButton>
+                    <IconButton onClick={() => zoomOut()}>
+                      <ZoomOutIcon />
+                    </IconButton>
+                    <IconButton onClick={() => resetTransform()}>
+                      <ResetIcon />
+                    </IconButton>
+                  </Grid>
+                </>
+              )}
+            </TransformWrapper>
           </Grid>
 
           <Grid
@@ -109,6 +145,10 @@ const QuickView = ({
                 direction="column"
                 justifyContent="space-between"
                 classes={{ root: classes.infoContainer }}
+                component={Link}
+                to={`/${product.node.category.name.toLowerCase()}/${product.node.name
+                  .split(" ")[0]
+                  .toLowerCase()}`}
               >
                 <Grid item>
                   <Typography variant="h4" classes={{ root: classes.text }}>

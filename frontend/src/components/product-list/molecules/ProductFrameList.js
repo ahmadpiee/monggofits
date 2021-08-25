@@ -6,6 +6,8 @@ import { Sizes, ColorSwitch, QtyButton } from "../atoms"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { colorIndex } from "./ProductFrameGrid"
 import { Link } from "gatsby"
+import Zoom from "react-medium-image-zoom"
+import "react-medium-image-zoom/dist/styles.css"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {},
@@ -29,8 +31,13 @@ const useStyles = makeStyles(theme => ({
   text: {
     color: theme.palette.common.white,
   },
-  chip: {
+  chipContainer: {
     margin: "1rem 0",
+  },
+  chip: {
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 }))
 
@@ -65,20 +72,15 @@ const ProductFrameList = ({
         {images.slice(0, 4).map(image => {
           const imageUrl = getImage(image.localFile)
           return (
-            <Grid
-              item
-              key={imageUrl}
-              component={Link}
-              to={`/${product.node.category.name.toLowerCase()}/${
-                product.node.name.split(" ")[0]
-              }`}
-            >
-              <GatsbyImage
-                objectFit="contain"
-                image={imageUrl}
-                className={classes.productImage}
-                alt="Product Picture"
-              />
+            <Grid item key={imageUrl}>
+              <Zoom zoomMargin={10}>
+                <GatsbyImage
+                  objectFit="contain"
+                  image={imageUrl}
+                  className={classes.productImage}
+                  alt="Product Picture"
+                />
+              </Zoom>
             </Grid>
           )
         })}
@@ -91,6 +93,10 @@ const ProductFrameList = ({
         direction="column"
         justifyContent="space-between"
         classes={{ root: classes.infoContainer }}
+        component={Link}
+        to={`/${product.node.category.name.toLowerCase()}/${product.node.name
+          .split(" ")[0]
+          .toLowerCase()}`}
       >
         <Grid item container direction="column">
           <Grid item>
@@ -103,8 +109,11 @@ const ProductFrameList = ({
             <Rating number={4.5} />
           </Grid>
 
-          <Grid item classes={{ root: classes.chip }}>
-            <Chip label={`IDR ${Formatter.format(variant.price)} `} />
+          <Grid item classes={{ root: classes.chipContainer }}>
+            <Chip
+              label={`IDR ${Formatter.format(variant.price)} `}
+              classes={{ label: classes.chip }}
+            />
           </Grid>
 
           <Grid item>

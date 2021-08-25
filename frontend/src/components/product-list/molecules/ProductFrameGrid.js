@@ -20,10 +20,6 @@ const useStyles = makeStyles(theme => ({
     alignSelf: "center",
     height: "20rem",
     width: "20rem",
-    "&:hover": {
-      transform: "scale(1.05)",
-      transition: "transform 1.25s cubic-bezier(0.25, 0.45, 0.45, 2.5)",
-    },
   },
   title: {
     background: theme.palette.primary.main,

@@ -6,7 +6,7 @@ import { Sort, Filter } from "."
 const useStyles = makeStyles(theme => ({
   functionContainer: {
     backgroundColor: theme.palette.primary.main,
-    minHeight: "6rem",
+    minHeight: "7rem",
     height: "auto",
     borderRadius: ({ option }) => (option !== null ? "10px" : "10px 10px 0 0"),
   },

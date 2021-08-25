@@ -14,9 +14,17 @@ import {
   FaStarHalfAlt,
   FaStar,
 } from "react-icons/fa"
-import { FiSliders, FiFilter, FiChevronDown, FiChevronUp } from "react-icons/fi"
+import {
+  FiSliders,
+  FiFilter,
+  FiChevronDown,
+  FiChevronUp,
+  FiZoomIn,
+  FiZoomOut,
+} from "react-icons/fi"
 import { IoMdCloseCircle } from "react-icons/io"
 import { IoSearchOutline } from "react-icons/io5"
+import { MdSettingsBackupRestore } from "react-icons/md"
 
 const useStyles = makeStyles(theme => ({
   toolbarIcon: {
@@ -117,6 +125,11 @@ const useStyles = makeStyles(theme => ({
     height: "2rem",
     width: "2rem",
     color: theme.palette.common.white,
+  },
+  zoomIcon: {
+    height: "1.5rem",
+    width: "1.5rem",
+    color: theme.palette.secondary.light,
   },
 }))
 
@@ -338,6 +351,41 @@ export const ChevronUp = ({ style, color, size, className }) => {
   return (
     <FiChevronUp
       className={className || classes.chevronUp}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+
+// zoom icon
+export const ZoomInIcon = ({ style, color, size, className }) => {
+  const classes = useStyles()
+  return (
+    <FiZoomIn
+      className={className || classes.zoomIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+export const ZoomOutIcon = ({ style, color, size, className }) => {
+  const classes = useStyles()
+  return (
+    <FiZoomOut
+      className={className || classes.zoomIcon}
+      style={style}
+      color={color}
+      size={size}
+    />
+  )
+}
+export const ResetIcon = ({ style, color, size, className }) => {
+  const classes = useStyles()
+  return (
+    <MdSettingsBackupRestore
+      className={className || classes.zoomIcon}
       style={style}
       color={color}
       size={size}
