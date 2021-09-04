@@ -15,7 +15,7 @@ import { ExpandMoreIcon } from "@components/Icons"
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     width: "100%",
-    minHeight: "60vh",
+    minHeight: "65vh",
     marginBottom: "2rem",
   },
   accordionContainer: {
