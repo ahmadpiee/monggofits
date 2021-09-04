@@ -6,8 +6,8 @@ import { DescriptionContainer, FunctionContainer } from "./atoms"
 
 const useStyles = makeStyles(theme => ({
   toolBarContainer: {
-    border: `5px solid ${theme.palette.primary.main}`,
-    borderRadius: 20,
+    border: `2.5px solid ${theme.palette.primary.main}`,
+    borderRadius: 30,
     width: "95%",
     height: "auto",
     marginBottom: "5rem",

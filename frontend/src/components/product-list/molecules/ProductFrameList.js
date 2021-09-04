@@ -52,7 +52,7 @@ const ProductFrameList = ({
   setSelectedColor,
 }) => {
   const classes = useStyles()
-  const imageIndex = colorIndex(product, selectedColor)
+  const imageIndex = colorIndex(product, selectedColor, variant)
 
   const images =
     imageIndex !== -1
@@ -93,12 +93,16 @@ const ProductFrameList = ({
         direction="column"
         justifyContent="space-between"
         classes={{ root: classes.infoContainer }}
-        component={Link}
-        to={`/${product.node.category.name.toLowerCase()}/${product.node.name
-          .split(" ")[0]
-          .toLowerCase()}`}
       >
-        <Grid item container direction="column">
+        <Grid
+          item
+          container
+          direction="column"
+          component={Link}
+          to={`/${product.node.category.name.toLowerCase()}/${product.node.name
+            .split(" ")[0]
+            .toLowerCase()}`}
+        >
           <Grid item>
             <Typography variant="h5" classes={{ root: classes.text }}>
               {product.node.name.split(" ")[0]}

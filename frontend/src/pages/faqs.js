@@ -47,9 +47,11 @@ const useStyles = makeStyles(theme => ({
 const Faq = () => {
   const classes = useStyles()
 
-  const data = useStaticQuery(graphql`
+  const {
+    data: { edges: node },
+  } = useStaticQuery(graphql`
     query getFaqs {
-      allStrapiFaqs {
+      data: allStrapiFaqs {
         edges {
           node {
             strapiId
@@ -64,7 +66,7 @@ const Faq = () => {
   return (
     <Layout>
       <Grid classes={{ root: classes.mainContainer }}>
-        {data.allStrapiFaqs.edges.map(({ node }) => (
+        {node.map(({ node }) => (
           <Grid
             item
             container

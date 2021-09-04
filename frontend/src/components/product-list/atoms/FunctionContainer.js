@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.main,
     minHeight: "7rem",
     height: "auto",
-    borderRadius: ({ option }) => (option !== null ? "10px" : "10px 10px 0 0"),
+    borderRadius: ({ option }) => (option !== null ? "25px" : "25px 25px 0 0"),
   },
 }))
 

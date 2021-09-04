@@ -11,7 +11,7 @@ import { ChevronUp } from "@components/Icons"
 const useStyles = makeStyles(theme => ({
   fab: {
     alignSelf: "flex-end",
-    margin: "1rem",
+    margin: "1.5rem",
     height: "3rem",
     width: "3rem",
   },
@@ -32,7 +32,7 @@ const ProductList = ({
     scrollRef.current.scrollIntoView({ behavior: "smooth" })
   }
 
-  const productsPerPage = layout === "grid" ? 16 : 8
+  const productsPerPage = layout === "grid" ? 20 : 10
   var numVariants = 0
   products.map(product => (numVariants += product.node.variants.length))
   const numPages = Math.ceil(numVariants / productsPerPage)

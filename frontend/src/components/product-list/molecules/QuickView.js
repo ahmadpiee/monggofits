@@ -25,9 +25,10 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     maxWidth: "100%",
+    borderRadius: 0,
   },
   selectedFrame: {
-    height: "60rem",
+    minHeight: "auto",
     width: "70rem",
     padding: "0 !important",
   },
@@ -65,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   infoItem: {
     position: "absolute",
     left: "1.5rem",
-    height: "calc(100% - 1rem)",
+    height: "calc(100% - 2rem)",
   },
   actionsItem: {
     position: "absolute",

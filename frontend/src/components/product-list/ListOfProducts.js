@@ -2,25 +2,53 @@
 // pay attention to the hooks below
 
 import React, { useState } from "react"
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid, makeStyles, useMediaQuery } from "@material-ui/core"
 import { ProductFrameList, ProductFrameGrid } from "./molecules"
 
 const useStyles = makeStyles(theme => ({
   productContainer: {
     width: "95%",
-    "& > *": {
-      marginRight: ({ layout }) =>
-        layout === "grid" ? "calc((100% - (25rem * 4)) / 3)" : 0,
-      marginBottom: "3rem",
+    [theme.breakpoints.only("xl")]: {
+      "& > *": {
+        marginRight: ({ layout }) =>
+          layout === "grid" ? "calc((100% - (25rem * 4)) / 3)" : 0,
+        marginBottom: "5rem",
+      },
+      "& > :nth-child(4n)": {
+        marginRight: 0,
+      },
     },
-    "& > :nth-child(4n)": {
-      marginRight: 0,
+    [theme.breakpoints.only("lg")]: {
+      "& > *": {
+        marginRight: ({ layout }) =>
+          layout === "grid" ? "calc((100% - (25rem * 3)) / 2)" : 0,
+        marginBottom: "5rem",
+      },
+      "& > :nth-child(3n)": {
+        marginRight: 0,
+      },
+    },
+    [theme.breakpoints.only("md")]: {
+      "& > *": {
+        marginRight: ({ layout }) =>
+          layout === "grid" ? "calc(100% - (25rem * 2))" : 0,
+        marginBottom: "5rem",
+      },
+      "& > :nth-child(2n)": {
+        marginRight: 0,
+      },
+    },
+    [theme.breakpoints.down("sm")]: {
+      "& > *": {
+        marginBottom: "5rem",
+      },
     },
   },
 }))
 
 const ListOfProducts = ({ products, layout, page, productsPerPage }) => {
   const classes = useStyles({ layout })
+  const matchesSM = useMediaQuery(theme => theme.breakpoints.down("sm"))
 
   const FrameControl = ({ Frame, product, variant }) => {
     // this hooks consumed by the child level components (ProductFrameGrid, ProductFrameList, QuickView)
@@ -30,8 +58,8 @@ const ListOfProducts = ({ products, layout, page, productsPerPage }) => {
     var sizes = []
     var colors = []
     product.node.variants.map(variant => {
-      sizes.push(variant.size)
-      colors.push(variant.color)
+      if (!sizes.includes(variant.size)) sizes.push(variant.size)
+      if (!colors.includes(variant.color)) colors.push(variant.color)
       return sizes && colors
     })
 
@@ -55,7 +83,13 @@ const ListOfProducts = ({ products, layout, page, productsPerPage }) => {
   )
 
   return (
-    <Grid item container classes={{ root: classes.productContainer }}>
+    <Grid
+      item
+      container
+      direction={matchesSM ? "column" : "row"}
+      alignItems="center"
+      classes={{ root: classes.productContainer }}
+    >
       {content
         .slice((page - 1) * productsPerPage, page * productsPerPage)
         .map(item => (

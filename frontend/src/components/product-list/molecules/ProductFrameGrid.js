@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Grid, Typography, makeStyles } from "@material-ui/core"
+import { Grid, Typography, makeStyles, useMediaQuery } from "@material-ui/core"
+import { navigate } from "gatsby"
 import clsx from "clsx"
 import theme from "@components/ui/theme"
 import { QuickView } from "."
@@ -35,9 +36,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export const colorIndex = (product, color) => {
+export const colorIndex = (product, color, variant) => {
   return product.node.variants.indexOf(
-    product.node.variants.filter(variant => variant.color === color)[0]
+    product.node.variants.filter(
+      item => item.color === color && variant.style === item.style
+    )[0]
   )
 }
 
@@ -51,10 +54,16 @@ const ProductFrameGrid = ({
   selectedColor,
   setSelectedColor,
 }) => {
-  const classes = useStyles()
   const [open, setOpen] = useState(false)
 
-  const imageIndex = colorIndex(product, selectedColor)
+  const classes = useStyles()
+
+  const matchesMD = useMediaQuery(theme => theme.breakpoints.down("md"))
+  if (matchesMD && open) {
+    setOpen(false)
+  }
+
+  const imageIndex = colorIndex(product, selectedColor, variant)
 
   const imageUrl =
     imageIndex !== -1
@@ -68,7 +77,7 @@ const ProductFrameGrid = ({
     <Grid
       item
       classes={{
-        root: clsx({
+        root: clsx(classes.mainContainer, {
           [classes.invisibility]: open === true,
         }),
       }}
@@ -76,8 +85,15 @@ const ProductFrameGrid = ({
       <Grid
         container
         direction="column"
-        classes={{ root: classes.mainContainer }}
-        onClick={() => setOpen(true)}
+        onClick={() =>
+          matchesMD
+            ? navigate(
+                `/${product.node.category.name.toLowerCase()}/${product.node.name
+                  .split(" ")[0]
+                  .toLowerCase()}`
+              )
+            : setOpen(true)
+        }
       >
         <Grid item classes={{ root: classes.frameContainer }}>
           <GatsbyImage

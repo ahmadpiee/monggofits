@@ -9,22 +9,33 @@ import {
 } from "@material-ui/core"
 import theme from "@components/ui/theme"
 import { ListIcon, GridIcon } from "@components/Icons"
+import { useMediaQuery } from "@material-ui/core"
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     padding: "3rem",
     position: "relative",
+    [theme.breakpoints.down("sm")]: {
+      padding: "2rem 0",
+    },
   },
   descriptionContainer: {
     background: theme.palette.primary.main,
     minHeight: "15rem",
-    width: "60rem",
-    borderRadius: 20,
+    width: "65%",
+    borderRadius: 25,
     textAlign: "center",
     padding: "2rem",
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+    },
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: 0,
+    },
   },
   title: {
     color: theme.palette.common.white,
+    marginBottom: "0.5rem",
   },
   buttonContainer: {
     position: "absolute",
@@ -32,6 +43,15 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     marginRight: "3rem",
     marginBottom: "3rem",
+    [theme.breakpoints.down("md")]: {
+      position: "relative",
+      display: "flex",
+      alignSelf: "flex-end",
+      margin: "2rem 0 0 0 ",
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: "2rem 2rem 0 0",
+    },
   },
   button: {
     border: `2px solid ${theme.palette.primary.main}`,
@@ -54,20 +74,19 @@ const useStyles = makeStyles(theme => ({
 const DescriptionContainer = ({ name, description, layout, setLayout }) => {
   const classes = useStyles()
 
+  const matchesMD = useMediaQuery(theme => theme.breakpoints.down("md"))
+
   return (
     <Grid
       item
       container
+      direction={matchesMD ? "column" : "row"}
+      alignItems={matchesMD ? "center" : undefined}
       classes={{ root: classes.mainContainer }}
       justifyContent="center"
     >
       <Grid item classes={{ root: classes.descriptionContainer }}>
-        <Typography
-          variant="h4"
-          paragraph
-          gutterBottom
-          classes={{ root: classes.title }}
-        >
+        <Typography variant="h4" classes={{ root: classes.title }}>
           {name}
         </Typography>
         <Typography variant="body2">{description}</Typography>

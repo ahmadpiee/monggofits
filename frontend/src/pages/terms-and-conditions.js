@@ -46,9 +46,11 @@ const useStyles = makeStyles(theme => ({
 const TermsAndConditions = () => {
   const classes = useStyles()
 
-  const data = useStaticQuery(graphql`
+  const {
+    data: { edges: node },
+  } = useStaticQuery(graphql`
     query GetTermsAndConditions {
-      allStrapiTermAndConditions {
+      data: allStrapiTermAndConditions {
         edges {
           node {
             name
@@ -63,7 +65,7 @@ const TermsAndConditions = () => {
   return (
     <Layout>
       <Grid classes={{ root: classes.mainContainer }}>
-        {data.allStrapiTermAndConditions.edges.map(({ node }) => (
+        {node.map(({ node }) => (
           <Grid
             item
             container

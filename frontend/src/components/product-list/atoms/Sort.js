@@ -1,8 +1,18 @@
 import React from "react"
-import { Grid, IconButton, Chip } from "@material-ui/core"
+import { Grid, IconButton, Chip, makeStyles } from "@material-ui/core"
 import { SortIcon, CloseIcon } from "@components/Icons"
 
+const useStyles = makeStyles(theme => ({
+  chipContainer: {
+    [theme.breakpoints.down("md")]: {
+      margin: "0.5rem",
+    },
+  },
+}))
+
 const Sort = ({ setOption }) => {
+  const classes = useStyles()
+
   const sortOptions = [
     { label: "A-Z" },
     { label: "Z-A" },
@@ -24,7 +34,10 @@ const Sort = ({ setOption }) => {
         <Grid container justifyContent="space-evenly">
           {sortOptions.map(option => (
             <Grid item key={option.label}>
-              <Chip label={option.label} />
+              <Chip
+                classes={{ root: classes.chipContainer }}
+                label={option.label}
+              />
             </Grid>
           ))}
         </Grid>
