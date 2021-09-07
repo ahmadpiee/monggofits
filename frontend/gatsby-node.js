@@ -13,6 +13,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@components": path.resolve(__dirname, "src/components"),
         "@templates": path.resolve(__dirname, "src/templates"),
         "@images": path.resolve(__dirname, "src/images"),
+        apollo: path.resolve(__dirname, "src/apollo"),
       },
     },
   })
