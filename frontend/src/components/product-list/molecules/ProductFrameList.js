@@ -10,7 +10,6 @@ import Zoom from "react-medium-image-zoom"
 import "react-medium-image-zoom/dist/styles.css"
 
 const useStyles = makeStyles(theme => ({
-  mainContainer: {},
   frameContainer: {
     height: "28rem",
   },
@@ -27,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     width: "100%",
     padding: "1rem",
+    // [theme.breakpoints.down("md")]: {
+    //   height: "50%",
+    // },
   },
   text: {
     color: theme.palette.common.white,
@@ -38,6 +40,9 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       cursor: "pointer",
     },
+  },
+  midContainer: {
+    margin: "2rem 0",
   },
 }))
 
@@ -60,10 +65,10 @@ const ProductFrameList = ({
       : variant.images
 
   return (
-    <Grid item container classes={{ root: classes.mainContainer }}>
+    <Grid item container>
       <Grid
         item
-        xs={9}
+        lg={9}
         container
         alignItems="center"
         justifyContent="space-evenly"
@@ -88,7 +93,7 @@ const ProductFrameList = ({
 
       <Grid
         item
-        xs={3}
+        lg={3}
         container
         direction="column"
         justifyContent="space-between"
@@ -127,7 +132,12 @@ const ProductFrameList = ({
           </Grid>
         </Grid>
 
-        <Grid item container direction="column">
+        <Grid
+          item
+          container
+          direction="column"
+          classes={{ root: classes.midContainer }}
+        >
           <Sizes
             sizes={sizes}
             selectedSize={selectedSize}

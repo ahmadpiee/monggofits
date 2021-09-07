@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   button: {
-    border: `2px solid ${theme.palette.primary.main}`,
+    border: `4px solid ${theme.palette.primary.main}`,
     borderRadius: 30,
     padding: "0.5rem 1rem",
     borderRightColor: `${theme.palette.primary.dark} !important`,

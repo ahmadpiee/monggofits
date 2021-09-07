@@ -16,11 +16,19 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    [theme.breakpoints.down("xs")]: {
+      height: "20rem",
+      width: "20rem",
+    },
   },
   image: {
     alignSelf: "center",
     height: "20rem",
     width: "20rem",
+    [theme.breakpoints.down("xs")]: {
+      height: "17.5rem",
+      width: "17.5rem",
+    },
   },
   title: {
     background: theme.palette.primary.main,
@@ -30,6 +38,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     alignItems: "center",
     padding: "1rem",
+    [theme.breakpoints.down("xs")]: {
+      width: "20rem",
+    },
   },
   invisibility: {
     visibility: "hidden",

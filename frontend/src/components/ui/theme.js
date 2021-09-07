@@ -40,13 +40,13 @@ const theme = createTheme({
         fontSize: "2.4rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "2.2rem",
+        fontSize: "2.3rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "2rem",
+        fontSize: "2.2rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "1.8rem",
+        fontSize: "2.1rem",
       },
     },
     h2: {
@@ -56,16 +56,16 @@ const theme = createTheme({
       fontWeight: 600,
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "2rem",
+        fontSize: "2.1rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "1.8rem",
+        fontSize: "2rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "1.6rem",
+        fontSize: "1.9rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "1.4rem",
+        fontSize: "1.8rem",
       },
     },
     h3: {
@@ -75,16 +75,16 @@ const theme = createTheme({
       fontWeight: 600,
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "1.8rem",
+        fontSize: "1.9rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "1.6rem",
+        fontSize: "1.8rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "1.4rem",
+        fontSize: "1.7rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "1.2rem",
+        fontSize: "1.6rem",
       },
     },
     h4: {
@@ -95,16 +95,16 @@ const theme = createTheme({
       fontSize: "1.8rem",
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "1.6rem",
+        fontSize: "1.7rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "1.4rem",
+        fontSize: "1.6rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "1.2rem",
+        fontSize: "1.5rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "1.1rem",
+        fontSize: "1.4rem",
       },
     },
     h5: {
@@ -115,16 +115,16 @@ const theme = createTheme({
       fontStyle: "italic",
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "1.4rem",
+        fontSize: "1.5rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "1.2rem",
+        fontSize: "1.4rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "1rem",
+        fontSize: "1.3rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "0.9rem",
+        fontSize: "1.2rem",
       },
     },
     h6: {
@@ -134,7 +134,7 @@ const theme = createTheme({
       fontWeight: 600,
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "1.3",
+        fontSize: "1.3rem",
       },
       "@media (max-width:960px)": {
         fontSize: "1.2rem",
@@ -145,38 +145,38 @@ const theme = createTheme({
     },
     body1: {
       fontFamily: "Roboto Slab",
-      fontSize: "1rem",
+      fontSize: "1.1rem",
       letterSpacing: "0.25px",
       color: solidBlack,
       "@media (max-width:1280px)": {
-        fontSize: "0.95rem",
+        fontSize: "1.05rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "0.9rem",
+        fontSize: "1rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "0.85rem",
+        fontSize: "0.95rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "0.8rem",
+        fontSize: "0.9rem",
       },
     },
     body2: {
       fontFamily: "Roboto Slab",
-      fontSize: "1rem",
+      fontSize: "1.1rem",
       letterSpacing: "0.25px",
       color: white,
       "@media (max-width:1280px)": {
-        fontSize: "0.95rem",
+        fontSize: "1.05rem",
       },
       "@media (max-width:960px)": {
-        fontSize: "0.9rem",
+        fontSize: "1rem",
       },
       "@media (max-width:640px)": {
-        fontSize: "0.85rem",
+        fontSize: "0.95rem",
       },
       "@media (max-width:480px)": {
-        fontSize: "0.8rem",
+        fontSize: "0.9rem",
       },
     },
   },
@@ -187,21 +187,21 @@ const theme = createTheme({
       },
       label: {
         fontFamily: "Roboto Mono",
-        fontSize: "1rem",
         fontWeight: 700,
+        fontSize: "1.1rem",
         letterSpacing: "0.25px",
         color: solidBlack,
         "@media (max-width:1280px)": {
-          fontSize: "0.95rem",
+          fontSize: "1.05rem",
         },
         "@media (max-width:960px)": {
-          fontSize: "0.9rem",
+          fontSize: "1rem",
         },
         "@media (max-width:640px)": {
-          fontSize: "0.85rem",
+          fontSize: "0.95rem",
         },
         "@media (max-width:480px)": {
-          fontSize: "0.8rem",
+          fontSize: "0.9rem",
         },
       },
     },

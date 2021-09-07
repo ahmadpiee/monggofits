@@ -1,5 +1,11 @@
 import React from "react"
-import { Grid, IconButton, Chip, makeStyles } from "@material-ui/core"
+import {
+  Grid,
+  IconButton,
+  Chip,
+  makeStyles,
+  useMediaQuery,
+} from "@material-ui/core"
 import { SortIcon, CloseIcon } from "@components/Icons"
 
 const useStyles = makeStyles(theme => ({
@@ -7,11 +13,15 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("md")]: {
       margin: "0.5rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      margin: "0.3rem",
+    },
   },
 }))
 
 const Sort = ({ setOption }) => {
   const classes = useStyles()
+  const matchesXS = useMediaQuery(theme => theme.breakpoints.down("xs"))
 
   const sortOptions = [
     { label: "A-Z" },
@@ -31,7 +41,12 @@ const Sort = ({ setOption }) => {
       </Grid>
 
       <Grid item xs>
-        <Grid container justifyContent="space-evenly">
+        <Grid
+          container
+          justifyContent="space-evenly"
+          direction={matchesXS ? "column" : "row"}
+          alignItems="center"
+        >
           {sortOptions.map(option => (
             <Grid item key={option.label}>
               <Chip
