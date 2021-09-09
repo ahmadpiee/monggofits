@@ -33,14 +33,13 @@ const useStyles = makeStyles(theme => ({
     padding: "0 !important",
   },
   image: {
-    height: "40rem",
-    width: "40rem",
-    marginTop: "2rem",
+    height: "35rem",
+    width: "35rem",
+    marginTop: "1rem",
   },
   toolbar: {
     height: "13rem",
     background: theme.palette.secondary.main,
-    marginTop: "2rem",
     padding: "0.75rem 1.5rem",
     position: "relative",
   },

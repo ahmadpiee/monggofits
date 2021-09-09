@@ -7,7 +7,7 @@ import { DescriptionContainer, FunctionContainer } from "./atoms"
 const useStyles = makeStyles(theme => ({
   toolBarContainer: {
     border: `5px solid ${theme.palette.primary.main}`,
-    borderRadius: 25,
+    borderRadius: 25.5,
     width: "95%",
     height: "auto",
     marginBottom: "5rem",
@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 const DynamicToolbar = ({
   filterOptions,
+  setFilterOptions,
   name,
   description,
   layout,
@@ -35,6 +36,7 @@ const DynamicToolbar = ({
         option={option}
         setOption={setOption}
         filterOptions={filterOptions}
+        setFilterOptions={setFilterOptions}
       />
       {option === null && (
         <DescriptionContainer
